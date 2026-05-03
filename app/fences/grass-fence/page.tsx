@@ -1,5 +1,6 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import { ExamplesGallery } from "@/components/examples-gallery";
 
 const products: CatalogProduct[] = [
   {
@@ -22,6 +23,25 @@ const products: CatalogProduct[] = [
   },
 ];
 
+const examples = [
+  {
+    src: "/images/fences/grass/example-1.png",
+    alt: "Пример использования Травяного забора 1",
+  },
+  {
+    src: "/images/fences/grass/example-2.png",
+    alt: "Пример использования Травяного забора 2",
+  },
+  {
+    src: "/images/fences/grass/example-3.png",
+    alt: "Пример использования Травяного забора 3",
+  },
+  {
+    src: "/images/fences/grass/example-4.png",
+    alt: "Пример использования Травяного забора 4",
+  },
+];
+
 export default function GrassFencePage() {
   return (
     <DevelopmentPage
@@ -30,6 +50,7 @@ export default function GrassFencePage() {
       imageSrc="/images/fences/grass-fence.png"
       imageAlt="Травяной забор Grass Fence"
     >
+      <ExamplesGallery examples={examples} />
       <CatalogPage products={products} />
     </DevelopmentPage>
   );

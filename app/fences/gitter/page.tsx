@@ -3,6 +3,7 @@ import {
   DetailedCatalogPage,
   type DetailedCatalogProduct,
 } from "@/components/detailed-catalog-page";
+import { ExamplesGallery } from "@/components/examples-gallery";
 
 const products: DetailedCatalogProduct[] = [
   {
@@ -71,7 +72,7 @@ const products: DetailedCatalogProduct[] = [
     size: "1.73×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.3 мм (Zn); 3.5 мм (Zn + ПП)",
+    rodDиameter: "3.3 мм (Zn); 3.5 мм (Zn + ПП)",
     colors: ["RAL6005", "RAL8017", "RAL7024"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "1900 руб",
@@ -83,7 +84,7 @@ const products: DetailedCatalogProduct[] = [
     size: "2.03×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.3 мм (Zn); 3.5 мм (Zn + ПП)",
+    rodDиameter: "3.3 мм (Zn); 3.5 мм (Zn + ПП)",
     colors: ["RAL6005", "RAL8017", "RAL7024"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "2200 руб",
@@ -95,7 +96,7 @@ const products: DetailedCatalogProduct[] = [
     size: "1.03×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
+    rodDиameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
     colors: ["RAL6005 Зеленый мох"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "1500 руб",
@@ -107,7 +108,7 @@ const products: DetailedCatalogProduct[] = [
     size: "1.53×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
+    rodDиameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
     colors: ["RAL6005", "RAL8017", "RAL7024"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "2100 руб",
@@ -119,7 +120,7 @@ const products: DetailedCatalogProduct[] = [
     size: "1.73×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
+    rodDиameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
     colors: ["RAL6005", "RAL8017", "RAL7024"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "2300 руб",
@@ -131,10 +132,29 @@ const products: DetailedCatalogProduct[] = [
     size: "2.03×2.5",
     coating: "оцинкованная в полимерном покрытии",
     cell: "200×55 мм",
-    rodDiameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
+    rodDиameter: "3.8 мм (Zn); 4 мм (Zn + ПП)",
     colors: ["RAL6005", "RAL8017", "RAL7024", "RAL7024"],
     additional: "Панель 3D ЦИНК по запросу",
     price: "2600 руб",
+  },
+];
+
+const examples = [
+  {
+    src: "/images/fences/3d-gitter/example-1.png",
+    alt: "Пример использования 3D сетки Гиттер 1",
+  },
+  {
+    src: "/images/fences/3d-gitter/example-2.png",
+    alt: "Пример использования 3D сетки Гиттер 2",
+  },
+  {
+    src: "/images/fences/3d-gitter/example-3.png",
+    alt: "Пример использования 3D сетки Гиттер 3",
+  },
+  {
+    src: "/images/fences/3d-gitter/example-4.png",
+    alt: "Пример использования 3D сетки Гиттер 4",
   },
 ];
 
@@ -146,6 +166,7 @@ export default function GitterPage() {
       imageSrc="/images/fences/3d-setcka.png"
       imageAlt="3D сетка Гиттер"
     >
+      <ExamplesGallery examples={examples} />
       <DetailedCatalogPage
         imageSrc="/images/fences/3d-gitter/product.png"
         imageAlt="3D сетка Гиттер"

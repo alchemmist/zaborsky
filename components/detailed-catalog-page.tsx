@@ -110,7 +110,10 @@ export function DetailedCatalogPage({
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+          Каталог
+        </h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
             <DetailedCatalogCard
               key={product.id}
