@@ -14,7 +14,7 @@ export type CatalogProduct = {
 };
 
 type CatalogPageProps = {
-  specs: CatalogSpec[];
+  specs?: CatalogSpec[];
   products: CatalogProduct[];
 };
 
@@ -56,18 +56,20 @@ export function CatalogPage({ specs, products }: CatalogPageProps) {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl">
-          <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
-            Характеристики
-          </h2>
-          <ul className="mt-8 space-y-4 text-lg leading-9 text-slate-700 sm:text-xl">
-            {specs.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+        {specs?.length ? (
+          <div className="max-w-4xl">
+            <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+              Характеристики
+            </h2>
+            <ul className="mt-8 space-y-4 text-lg leading-9 text-slate-700 sm:text-xl">
+              {specs.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
-        <div className="mt-16">
+        <div className={specs?.length ? "mt-16" : ""}>
           <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
             Каталог
           </h2>
