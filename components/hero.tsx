@@ -7,7 +7,7 @@ export function Hero() {
       className="relative min-h-screen overflow-hidden bg-[#111827]"
     >
       <Image
-        src="/images/hero-house-fence.svg"
+        src="/images/home-background.png"
         alt="Современный дом с ограждением ZABORSKY"
         fill
         priority
