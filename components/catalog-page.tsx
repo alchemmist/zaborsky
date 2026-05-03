@@ -21,13 +21,13 @@ type CatalogPageProps = {
 function CatalogProductCard({ product }: { product: CatalogProduct }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden bg-white shadow-[0_10px_26px_rgba(22,28,37,0.08)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(22,28,37,0.12)]">
-      <div className="relative aspect-[4/3] overflow-hidden border-b border-black/5 bg-slate-100">
+      <div className="relative aspect-[4/3] overflow-hidden border-b border-black/5 bg-slate-100 flex items-center justify-center">
         <Image
           src={sitePath(product.image)}
           alt={product.alt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-contain transition duration-500 group-hover:scale-110 p-4"
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
