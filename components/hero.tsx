@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="hero" className="relative h-[50svh] min-h-[420px] overflow-hidden bg-[#5c7887]">
       <Image
-        src={sitePath("/images/home-background.png")}
+        src={sitePath("/images/home/home-background.png")}
         alt="Современный дом с ограждением ZABORSKY"
         fill
         priority

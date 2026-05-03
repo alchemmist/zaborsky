@@ -3,22 +3,22 @@ import { FenceCard } from "@/components/fence-card";
 const fences = [
   {
     title: "ЖАЛЮЗИ",
-    src: "/images/jalusi-example.png",
+    src: "/images/home/jalusi-example.png",
     alt: "Забор жалюзи в современном исполнении",
   },
   {
     title: "МЕТАЛЛОШТАКЕТНИК-РАНЧО",
-    src: "/images/metall-example.png",
+    src: "/images/home/metall-example.png",
     alt: "Забор из металлоштакетника в стиле ранчо",
   },
   {
     title: "ЕВРОШТАКЕТНИК",
-    src: "/images/shtaketnick-example.png",
+    src: "/images/home/shtaketnick-example.png",
     alt: "Евроштакетник на участке современного дома",
   },
   {
     title: "САЙДИНГ",
-    src: "/images/siding-example.png",
+    src: "/images/home/siding-example.png",
     alt: "Секционный забор в стиле сайдинга",
   },
 ];

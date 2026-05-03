@@ -1,18 +1,43 @@
+import Image from "next/image";
+import { sitePath } from "@/components/site-path";
+
 type DevelopmentPageProps = {
-  title?: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
 };
 
-export function DevelopmentPage({ title = "В разработке" }: DevelopmentPageProps) {
+export function DevelopmentPage({
+  title,
+  description,
+  imageSrc,
+  imageAlt,
+}: DevelopmentPageProps) {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#5c7887] text-white">
-      <div className="px-4 text-center">
-        <p className="text-xs font-medium uppercase tracking-[0.5em] text-white/70">
-          ZABORSKY
-        </p>
-        <h1 className="mt-6 text-4xl font-semibold uppercase tracking-[0.22em] sm:text-5xl">
-          {title}
-        </h1>
-      </div>
+    <main className="min-h-screen bg-white text-slate-900">
+      <section className="relative isolate flex h-[50svh] min-h-[420px] items-center overflow-hidden bg-slate-900">
+        <Image
+          src={sitePath(imageSrc)}
+          alt={imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[#1d262b]/48" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-white">
+            <h1 className="text-4xl font-semibold uppercase tracking-[0.22em] text-balance sm:text-5xl md:text-6xl lg:text-7xl">
+              {title}
+            </h1>
+            <p className="mt-6 max-w-2xl text-sm uppercase tracking-[0.24em] text-white/82 sm:text-base md:text-lg">
+              {description}
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
