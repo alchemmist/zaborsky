@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { sitePath } from "@/components/site-path";
 
 type DevelopmentPageProps = {
@@ -6,6 +7,7 @@ type DevelopmentPageProps = {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  children?: ReactNode;
 };
 
 export function DevelopmentPage({
@@ -13,6 +15,7 @@ export function DevelopmentPage({
   description,
   imageSrc,
   imageAlt,
+  children,
 }: DevelopmentPageProps) {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -38,6 +41,7 @@ export function DevelopmentPage({
           </div>
         </div>
       </section>
+      {children}
     </main>
   );
 }
