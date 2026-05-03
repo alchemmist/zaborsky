@@ -181,23 +181,34 @@ function FenceDropdown({ open, onOpen, onClose, onNavigate }: Omit<DropdownProps
 
 export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+
   const closeMenus = () => setOpenMenu(null);
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setMobileSection(null);
+  };
+  const closeAll = () => {
+    closeMenus();
+    closeMobileMenu();
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#5c7887]/18 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/home" onClick={closeMenus} className="select-none text-xl text-white">
+        <Link href="/home" onClick={closeAll} className="select-none text-xl text-white">
           ZABORSKY
         </Link>
 
         <div
-          className="hidden items-center gap-7 lg:flex"
+          className="hidden items-center gap-7 md:flex"
           style={{ fontFamily: "var(--font-open-sans)" }}
         >
           <MenuLink
             href="/home"
             label="Главная"
-            onNavigate={closeMenus}
+            onNavigate={closeAll}
             className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
           />
 
@@ -205,7 +216,7 @@ export function SiteHeader() {
             open={openMenu === "fences"}
             onOpen={() => setOpenMenu("fences")}
             onClose={closeMenus}
-            onNavigate={closeMenus}
+            onNavigate={closeAll}
           />
 
           <SimpleDropdown
@@ -213,7 +224,7 @@ export function SiteHeader() {
             open={openMenu === "landscaping"}
             onOpen={() => setOpenMenu("landscaping")}
             onClose={closeMenus}
-            onNavigate={closeMenus}
+            onNavigate={closeAll}
             align="left"
           />
 
@@ -222,16 +233,191 @@ export function SiteHeader() {
             open={openMenu === "about"}
             onOpen={() => setOpenMenu("about")}
             onClose={closeMenus}
-            onNavigate={closeMenus}
+            onNavigate={closeAll}
             align="left"
           />
 
           <MenuLink
             href="/contacts"
-            onNavigate={closeMenus}
+            onNavigate={closeAll}
             label="Контакты"
             className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
           />
+        </div>
+
+        <button
+          type="button"
+          className="inline-flex h-6 w-11 items-center justify-center text-white transition hover:text-white/85 md:hidden"
+          aria-expanded={mobileOpen}
+          aria-label={mobileOpen ? "Закрыть меню" : "Открыть меню"}
+          onClick={() => {
+            setMobileOpen((value) => !value);
+            setMobileSection(null);
+          }}
+        >
+          <span className="relative block h-4 w-5">
+            <span
+              className={[
+                "absolute left-0 top-1/2 h-0.5 w-5 origin-center rounded-full bg-current transition duration-200",
+                mobileOpen ? "-translate-y-1/2 rotate-45" : "-translate-y-[7px]",
+              ].join(" ")}
+            />
+            <span
+              className={[
+                "absolute left-0 top-1/2 h-0.5 w-5 origin-center rounded-full bg-current transition duration-200",
+                mobileOpen ? "opacity-0 scale-x-0 -translate-y-1/2" : "-translate-y-1/2",
+              ].join(" ")}
+            />
+            <span
+              className={[
+                "absolute left-0 top-1/2 h-0.5 w-5 origin-center rounded-full bg-current transition duration-200",
+                mobileOpen ? "-translate-y-1/2 -rotate-45" : "translate-y-[7px]",
+              ].join(" ")}
+            />
+          </span>
+        </button>
+      </div>
+
+      <div
+        className={[
+          "md:hidden border-t border-white/10 bg-[#5c7887]/96 backdrop-blur-md transition-all duration-200",
+          mobileOpen ? "max-h-[calc(100vh-4.5rem)] opacity-100" : "max-h-0 overflow-hidden opacity-0",
+        ].join(" ")}
+      >
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+          <nav className="flex flex-col gap-2 text-white">
+            <MenuLink
+              href="/home"
+              label="Главная"
+              onNavigate={closeAll}
+              className="rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
+            />
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
+              <div className="flex items-center gap-2">
+                <MenuLink
+                  href="/fences"
+                  label="Заборы"
+                  onNavigate={closeAll}
+                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
+                />
+                <button
+                  type="button"
+                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
+                  aria-expanded={mobileSection === "fences"}
+                  aria-label="Показать подменю Заборы"
+                  onClick={() =>
+                    setMobileSection((value) => (value === "fences" ? null : "fences"))
+                  }
+                >
+                  ▾
+                </button>
+              </div>
+              {mobileSection === "fences" ? (
+                <div className="mt-2 space-y-1 border-white/15 pl-3">
+                  {fenceItems.map((item) => (
+                    <div key={item.label} className="rounded-xl bg-white/5 p-2">
+                      <MenuLink
+                        href={item.href}
+                        label={item.label}
+                        onNavigate={closeAll}
+                        className="block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10"
+                      />
+                      {item.children?.length ? (
+                        <div className="mt-1 border-white/15 pl-3">
+                          {item.children.map((child) => (
+                            <TreeChildLink
+                              key={child.label}
+                              href={child.href}
+                              label={child.label}
+                              onNavigate={closeAll}
+                            />
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
+              <div className="flex items-center gap-2">
+                <MenuLink
+                  href="/landscaping"
+                  label="Благоустройство"
+                  onNavigate={closeAll}
+                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
+                />
+                <button
+                  type="button"
+                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
+                  aria-expanded={mobileSection === "landscaping"}
+                  aria-label="Показать подменю Благоустройство"
+                  onClick={() =>
+                    setMobileSection((value) => (value === "landscaping" ? null : "landscaping"))
+                  }
+                >
+                  ▾
+                </button>
+              </div>
+              {mobileSection === "landscaping" ? (
+                <div className="mt-2 space-y-1 border-l border-white/15 pl-3">
+                  {landscapingItems.map((item) => (
+                    <MenuLink
+                      key={item.label}
+                      href={item.href}
+                      label={item.label}
+                      onNavigate={closeAll}
+                      className="block rounded-xl px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/10"
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
+              <div className="flex items-center gap-2">
+                <MenuLink
+                  href="/about"
+                  label="О нас"
+                  onNavigate={closeAll}
+                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
+                />
+                <button
+                  type="button"
+                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
+                  aria-expanded={mobileSection === "about"}
+                  aria-label="Показать подменю О нас"
+                  onClick={() =>
+                    setMobileSection((value) => (value === "about" ? null : "about"))
+                  }
+                >
+                  ▾
+                </button>
+              </div>
+              {mobileSection === "about" ? (
+                <div className="mt-2 space-y-1 border-l border-white/15 pl-3">
+                  {aboutItems.map((item) => (
+                    <MenuLink
+                      key={item.label}
+                      href={item.href}
+                      label={item.label}
+                      onNavigate={closeAll}
+                      className="block rounded-xl px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/10"
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            <MenuLink
+              href="/contacts"
+              label="Контакты"
+              onNavigate={closeAll}
+              className="rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
+            />
+          </nav>
         </div>
       </div>
     </header>
