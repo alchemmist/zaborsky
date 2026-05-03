@@ -1,6 +1,6 @@
 export function AboutSection() {
   return (
-    <section id="about" className="bg-[#ece4d7] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="about" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
@@ -37,7 +37,7 @@ export function AboutSection() {
 
         <aside
           id="contacts"
-          className="border border-black/10 bg-[#f7f2ea] p-7 shadow-[0_12px_32px_rgba(22,28,37,0.08)]"
+          className="border border-black/10 bg-slate-50 p-7 shadow-[0_12px_32px_rgba(22,28,37,0.08)]"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
             Контакты
@@ -49,7 +49,7 @@ export function AboutSection() {
               </p>
               <a
                 href="tel:+79659383373"
-                className="mt-2 block text-xl font-semibold text-slate-900 transition hover:text-[#0f1720]"
+                className="mt-2 block text-xl font-semibold text-slate-900 transition hover:text-[#5c7887]"
               >
                 8-965-938-33-73
               </a>
@@ -60,7 +60,7 @@ export function AboutSection() {
               </p>
               <a
                 href="mailto:prometiz@inbox.ru"
-                className="mt-2 block text-lg font-medium text-slate-900 transition hover:text-[#0f1720]"
+                className="mt-2 block text-lg font-medium text-slate-900 transition hover:text-[#5c7887]"
               >
                 prometiz@inbox.ru
               </a>

@@ -6,17 +6,17 @@
       <stop offset="1" stop-color="#4b5a68"/>
     </linearGradient>
     <linearGradient id="ground" x1="800" y1="540" x2="800" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#a08f76"/>
-      <stop offset="1" stop-color="#6f6252"/>
+      <stop stop-color="#aab4bf"/>
+      <stop offset="1" stop-color="#6f7b87"/>
     </linearGradient>
     <linearGradient id="house" x1="760" y1="250" x2="760" y2="620" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f4f0e9"/>
-      <stop offset="1" stop-color="#d7d0c4"/>
+      <stop stop-color="#f5f7fa"/>
+      <stop offset="1" stop-color="#d8e0ea"/>
     </linearGradient>
   </defs>
   <rect width="1600" height="900" fill="url(#sky)"/>
   <rect y="530" width="1600" height="370" fill="url(#ground)"/>
-  <path d="M0 560H1600V900H0V560Z" fill="#8a7a64"/>
+  <path d="M0 560H1600V900H0V560Z" fill="#7f8b97"/>
   <path d="M280 520L610 280H980L1320 520H280Z" fill="#5a6570"/>
   <rect x="420" y="370" width="760" height="270" rx="8" fill="url(#house)"/>
   <rect x="520" y="430" width="140" height="210" rx="6" fill="#9ca8b3"/>

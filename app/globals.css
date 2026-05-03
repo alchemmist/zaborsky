@@ -2,8 +2,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3eee5;
+  --background: #ffffff;
   --foreground: #17202b;
+  --accent: #5c7887;
+  --accent-dark: #4f6976;
   --app-font-sans: "Oswald", "Arial Narrow", Arial, sans-serif;
   --app-font-mono: "Oswald", "Arial Narrow", Arial, sans-serif;
 }
@@ -33,6 +35,21 @@ textarea {
 }
 
 ::selection {
-  background: rgba(12, 22, 36, 0.18);
+  background: rgba(92, 120, 135, 0.22);
   color: #0f1720;
+}
+
+html,
+body,
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }

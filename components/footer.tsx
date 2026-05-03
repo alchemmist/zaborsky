@@ -1,8 +1,8 @@
 export function Footer() {
   return (
-    <footer className="border-t border-black/10 bg-[#101723] px-4 py-8 text-white/70 sm:px-6 lg:px-8">
+    <footer className="border-t border-black/10 bg-[#5c7887] px-4 py-8 text-white/80 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-semibold tracking-[0.24em] text-white/90">
+        <p className="font-semibold tracking-[0.24em] text-white/95">
           ZABORSKY
         </p>
         <div className="flex flex-col gap-1 sm:items-end">
