@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { sitePath } from "@/components/site-path";
 
 type FenceCardProps = {
   title: string;
@@ -11,7 +12,7 @@ export function FenceCard({ title, src, alt }: FenceCardProps) {
     <article className="group overflow-hidden bg-white shadow-[0_10px_30px_rgba(22,28,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(22,28,37,0.14)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
         <Image
-          src={src}
+          src={sitePath(src)}
           alt={alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
