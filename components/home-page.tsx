@@ -1,7 +1,6 @@
 import { AboutSection } from "@/components/about-section";
 import { CtaSection } from "@/components/cta-section";
 import { FencesGrid } from "@/components/fences-grid";
-import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 
 export function HomePage() {
@@ -11,7 +10,6 @@ export function HomePage() {
       <CtaSection />
       <FencesGrid />
       <AboutSection />
-      <Footer />
     </main>
   );
 }
