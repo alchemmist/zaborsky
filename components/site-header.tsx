@@ -14,11 +14,8 @@ const fenceItems: MenuNode[] = [
   { label: "Жалюзи ЭКО-Z и ЭКО-Z US", href: "/fences/eco-z" },
   { label: "Жалюзи Реснички", href: "/fences/resnichki" },
   { label: "Жалюзи Хай-Тек", href: "/fences/high-tech" },
-  {
-    label: "Металлопланкен-ранчо",
-    href: "/fences/metal-planken-rancho",
-    children: [{ label: "Евроштакетник", href: "/fences/metal-planken-rancho/euro-shaketnik" }],
-  },
+  { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho" },
+  { label: "Евроштакетник", href: "/fences/metal-planken-rancho/euro-shaketnik" },
   { label: "Сайдинг", href: "/fences/siding" },
   { label: "3D сетка Гиттер", href: "/fences/gitter" },
   { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence" },
