@@ -5,8 +5,8 @@ export default function ReviewsPage() {
     <DevelopmentPage
       title="Отзывы"
       description="Посмотрите, что говорят клиенты о нашем подходе к монтажу, срокам и качеству исполнения."
-      imageSrc="/images/home/home-background.png"
-      imageAlt="Современный дом с забором"
+      imageSrc="/images/about/reviews.png"
+      imageAlt="Отзывы клиентов"
     />
   );
 }

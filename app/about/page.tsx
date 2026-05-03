@@ -5,8 +5,8 @@ export default function AboutPage() {
     <DevelopmentPage
       title="О нас"
       description="Мы проектируем и монтируем заборы и благоустройство с упором на качество, аккуратность и современный результат."
-      imageSrc="/images/home/home-background.png"
-      imageAlt="Современный дом с забором"
+      imageSrc="/images/about/about-root.png"
+      imageAlt="О нас"
     />
   );
 }

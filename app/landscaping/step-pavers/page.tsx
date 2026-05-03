@@ -5,8 +5,8 @@ export default function StepPaversPage() {
     <DevelopmentPage
       title="Шаговые плиты"
       description="Функциональный элемент благоустройства для удобных и аккуратных дорожек на участке."
-      imageSrc="/images/home/home-background.png"
-      imageAlt="Современный дом с забором"
+      imageSrc="/images/landscaping/step-pvaers.png"
+      imageAlt="Шаговые плиты"
     />
   );
 }

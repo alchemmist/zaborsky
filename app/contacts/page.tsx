@@ -5,8 +5,8 @@ export default function ContactsPage() {
     <DevelopmentPage
       title="Контакты"
       description="Свяжитесь с нами, чтобы обсудить проект, получить консультацию и рассчитать стоимость работ."
-      imageSrc="/images/home/home-background.png"
-      imageAlt="Современный дом с забором"
+      imageSrc="/images/contacts/contacts-root.png"
+      imageAlt="Контакты"
     />
   );
 }
