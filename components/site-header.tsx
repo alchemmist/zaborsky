@@ -2,7 +2,6 @@ import Link from "next/link";
 
 const navItems = [
   { label: "Главная", href: "/home" },
-  { label: "Заборы", href: "/fences" },
   { label: "Благоустройство", href: "/landscaping" },
   { label: "О нас", href: "/about" },
   { label: "Контакты", href: "/contacts" },
@@ -53,40 +52,45 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-          </nav>
 
-          <details className="group relative">
-            <summary className="list-none cursor-pointer rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-white/80 backdrop-blur-md transition hover:bg-white/20 hover:text-white [&::-webkit-details-marker]:hidden">
-              Заборы
-            </summary>
-            <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-2xl border border-white/20 bg-[#101723]/90 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
-              {fenceItems.map((item) => (
-                <div key={item.label} className="rounded-xl">
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm tracking-[0.14em] text-white/80 transition hover:bg-white/10 hover:text-white"
-                  >
-                    <span>{item.label}</span>
-                    <span className="text-white/40">→</span>
-                  </Link>
+            <div className="group relative">
+              <Link
+                href="/fences"
+                className="text-sm font-medium uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
+              >
+                Заборы
+              </Link>
 
-                  {item.children ? (
-                    <div className="space-y-1 pb-2 pl-4 pt-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block rounded-lg px-4 py-2 text-xs tracking-[0.12em] text-white/65 transition hover:bg-white/8 hover:text-white"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ))}
+              <div aria-hidden="true" className="absolute left-0 right-0 top-full h-3" />
+              <div className="invisible absolute right-0 top-full mt-3 w-80 translate-y-1 overflow-hidden rounded-2xl border border-white/20 bg-[#101723]/90 p-2 opacity-0 shadow-2xl shadow-black/30 backdrop-blur-xl transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                {fenceItems.map((item) => (
+                  <div key={item.label} className="rounded-xl">
+                    <Link
+                      href={item.href}
+                      className="flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm tracking-[0.14em] text-white/80 transition hover:bg-white/10 hover:text-white"
+                    >
+                      <span>{item.label}</span>
+                      <span className="text-white/40">→</span>
+                    </Link>
+
+                    {item.children ? (
+                      <div className="space-y-1 pb-2 pl-4 pt-1">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block rounded-lg px-4 py-2 text-xs tracking-[0.12em] text-white/65 transition hover:bg-white/8 hover:text-white"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
             </div>
-          </details>
+          </nav>
         </div>
       </div>
     </header>
