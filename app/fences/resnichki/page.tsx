@@ -1,3 +1,5 @@
+import { DevelopmentPage } from "@/components/development-page";
+
 export default function ResnichkiPage() {
-  return <main className="min-h-screen bg-white" />;
+  return <DevelopmentPage />;
 }

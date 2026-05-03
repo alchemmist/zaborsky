@@ -9,8 +9,8 @@ type FenceCardProps = {
 
 export function FenceCard({ title, src, alt }: FenceCardProps) {
   return (
-    <article className="group overflow-hidden bg-white shadow-[0_10px_30px_rgba(22,28,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(22,28,37,0.14)]">
-      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+    <article className="group overflow-hidden bg-white shadow-[0_8px_22px_rgba(22,28,37,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(22,28,37,0.12)]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 md:aspect-[16/11]">
         <Image
           src={sitePath(src)}
           alt={alt}
@@ -19,8 +19,8 @@ export function FenceCard({ title, src, alt }: FenceCardProps) {
           className="object-cover transition duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="border-t border-black/5 px-5 py-4">
-        <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-900">
+      <div className="border-t border-black/5 px-4 py-3.5">
+        <h3 className="text-lg font-semibold uppercase tracking-[0.22em] text-slate-900 sm:text-sm">
           {title}
         </h3>
       </div>

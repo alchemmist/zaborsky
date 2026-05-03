@@ -1,3 +1,5 @@
+import { DevelopmentPage } from "@/components/development-page";
+
 export default function FencesPage() {
-  return <main className="min-h-screen bg-white" />;
+  return <DevelopmentPage />;
 }

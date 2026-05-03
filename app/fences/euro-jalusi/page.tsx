@@ -1,3 +1,5 @@
+import { DevelopmentPage } from "@/components/development-page";
+
 export default function EuroJalusiPage() {
-  return <main className="min-h-screen bg-white" />;
+  return <DevelopmentPage />;
 }
