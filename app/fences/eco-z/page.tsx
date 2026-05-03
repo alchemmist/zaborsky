@@ -71,7 +71,12 @@ const products: CatalogProduct[] = [
 export default function EcoZPage() {
   return (
     <DevelopmentPage
-      title="Жалюзи ЭКО-Z и ЭКО-Z US"
+      title={
+        <>
+          Жалюзи <span className="whitespace-nowrap">ЭКО-Z</span> и{" "}
+          <span className="whitespace-nowrap">ЭКО-Z US</span>
+        </>
+      }
       description="Лаконичное решение для современного участка с акцентом на геометрию и приватность."
       imageSrc="/images/fences/euro-jalusi-eco-z.png"
       imageAlt="Жалюзи ЭКО-Z и ЭКО-Z US"

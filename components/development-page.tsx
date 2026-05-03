@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { sitePath } from "@/components/site-path";
 
 type DevelopmentPageProps = {
-  title: string;
+  title: ReactNode;
   description: string;
   imageSrc: string;
   imageAlt: string;
