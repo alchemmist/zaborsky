@@ -359,7 +359,7 @@ export function SiteHeader() {
                 </button>
               </div>
               {mobileSection === "landscaping" ? (
-                <div className="mt-2 space-y-1 border-l border-white/15 pl-3">
+                <div className="mt-2 space-y-1 pl-3">
                   {landscapingItems.map((item) => (
                     <MenuLink
                       key={item.label}
@@ -394,7 +394,7 @@ export function SiteHeader() {
                 </button>
               </div>
               {mobileSection === "about" ? (
-                <div className="mt-2 space-y-1 border-l border-white/15 pl-3">
+                <div className="mt-2 space-y-1 pl-3">
                   {aboutItems.map((item) => (
                     <MenuLink
                       key={item.label}
