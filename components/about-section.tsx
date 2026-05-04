@@ -1,71 +1,61 @@
-export function AboutSection() {
+import Image from "next/image";
+import { sitePath } from "@/components/site-path";
+
+type AboutSectionProps = {
+  title: string;
+  description: string;
+  callToAction: string;
+  phoneHighlight: string;
+  images: Array<{ src: string; alt: string }>;
+};
+
+export function AboutSection({
+  title,
+  description,
+  callToAction,
+  phoneHighlight,
+  images,
+}: AboutSectionProps) {
   return (
-    <section id="about" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
-        <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
-            О компании
-          </p>
-          <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
-            ZABORSKY
-          </h2>
-          <div className="mt-8 space-y-5 text-base leading-8 text-slate-600 sm:text-lg">
-            <p>
-              Заборский - это успешный бренд и годами накопленный опыт монтажа
-              красивых и стильных заборов по всей России, с инновационными
-              подходами к дизайну заборов, технологии монтажа и выбору
-              материалов.
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          {/* Text Content */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
+              {title}
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-700">
+              {description}
             </p>
-            <p>
-              Мы заботимся о том, чтобы каждый объект нашего заказчика был
-              индивидуален, сделан качественно и радовал на протяжении всей
-              жизни.
-            </p>
-            <p>
-              Мы создаем впечатляющие современные заборы для каждого из наших
-              клиентов, внимательно относимся к его мнению и предлагаем
-              наилучшее решение.
-            </p>
-            <p>
-              Если вы хотите, чтобы ваш дом и участок преобразился в короткие
-              сроки, у вас нет забора, или он устарел, обязательно звоните нам.
-              Проконсультируем, ответим на все вопросы.
-            </p>
+            <div className="space-y-4 pt-4">
+              <p className="text-lg text-slate-700">
+                {callToAction}
+              </p>
+              <p className="text-2xl font-semibold tracking-[0.14em] text-[#5c7887]">
+                {phoneHighlight}
+              </p>
+            </div>
+          </div>
+
+          {/* Images Gallery */}
+          <div className="space-y-4">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="group relative aspect-[16/9] overflow-hidden rounded-lg shadow-md"
+              >
+                <Image
+                  src={sitePath(image.src)}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
-
-        <aside
-          id="contacts"
-          className="border border-black/10 bg-slate-50 p-7 shadow-[0_12px_32px_rgba(22,28,37,0.08)]"
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
-            Контакты
-          </p>
-          <div className="mt-6 space-y-5 text-base text-slate-700">
-            <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-slate-500">
-                Телефон
-              </p>
-              <a
-                href="tel:+79659383373"
-                className="mt-2 block text-xl font-semibold text-slate-900 transition hover:text-[#5c7887]"
-              >
-                8-965-938-33-73
-              </a>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-slate-500">
-                Email
-              </p>
-              <a
-                href="mailto:prometiz@inbox.ru"
-                className="mt-2 block text-lg font-medium text-slate-900 transition hover:text-[#5c7887]"
-              >
-                prometiz@inbox.ru
-              </a>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
   );
