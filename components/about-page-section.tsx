@@ -1,3 +1,5 @@
+import { sitePath } from "@/components/site-path";
+
 interface AboutPageSectionProps {
   title: string;
   description: string;
@@ -65,10 +67,10 @@ export function AboutPageSection({
             {images.map((image, index) => (
               <div key={index} className="overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-64 w-full object-cover"
-                />
+                   src={sitePath(image.src)}
+                   alt={image.alt}
+                   className="h-64 w-full object-cover"
+                 />
               </div>
             ))}
           </div>
