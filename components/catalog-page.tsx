@@ -16,18 +16,21 @@ export type CatalogProduct = {
 type CatalogPageProps = {
   specs?: CatalogSpec[];
   products: CatalogProduct[];
+  compactImages?: boolean;
 };
 
-function CatalogProductCard({ product }: { product: CatalogProduct }) {
+function CatalogProductCard({ product, compact }: { product: CatalogProduct; compact?: boolean }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden bg-white shadow-[0_10px_26px_rgba(22,28,37,0.08)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(22,28,37,0.12)]">
-      <div className="relative aspect-[4/3] overflow-hidden border-b border-black/5 bg-slate-100 flex items-center justify-center">
+       <div className={compact ? "px-6 pt-6" : "relative aspect-[4/3] overflow-hidden"}>
         <Image
           src={sitePath(product.image)}
           alt={product.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-contain transition duration-500 group-hover:scale-110 p-4"
+          fill={!compact}
+          width={compact ? 300 : undefined}
+          height={compact ? 300 : undefined}
+          sizes={compact ? "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"}
+          className={compact ? "object-contain transition duration-500 group-hover:scale-110 mx-auto" : "object-cover transition duration-500 group-hover:scale-110"}
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
@@ -52,7 +55,7 @@ function CatalogProductCard({ product }: { product: CatalogProduct }) {
   );
 }
 
-export function CatalogPage({ specs, products }: CatalogPageProps) {
+export function CatalogPage({ specs, products, compactImages }: CatalogPageProps) {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -75,7 +78,7 @@ export function CatalogPage({ specs, products }: CatalogPageProps) {
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {products.map((product) => (
-              <CatalogProductCard key={product.id} product={product} />
+              <CatalogProductCard key={product.id} product={product} compact={compactImages} />
             ))}
           </div>
         </div>

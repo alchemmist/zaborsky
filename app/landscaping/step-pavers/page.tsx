@@ -52,7 +52,7 @@ export default function StepPaversPage() {
       imageAlt="Шаговые плиты"
     >
       <ExamplesGallery examples={examples} size="large" />
-      <CatalogPage products={products} />
+      <CatalogPage products={products} compactImages />
     </DevelopmentPage>
   );
 }

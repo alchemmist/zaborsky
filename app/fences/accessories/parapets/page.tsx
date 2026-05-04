@@ -120,7 +120,7 @@ export default function ParapetsPage() {
       imageSrc="/images/fences/parapets.png"
       imageAlt="Парапеты ZKING"
     >
-      <CatalogPage products={products} />
+      <CatalogPage products={products} compactImages />
     </DevelopmentPage>
   );
 }

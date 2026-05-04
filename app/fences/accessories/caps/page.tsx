@@ -321,7 +321,7 @@ export default function CapsPage() {
       imageAlt="Колпаки ZKING"
     >
       <ExamplesGallery examples={examples} />
-      <CatalogPage products={products} />
+      <CatalogPage products={products} compactImages />
     </DevelopmentPage>
   );
 }
