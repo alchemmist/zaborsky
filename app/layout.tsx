@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
+import { sitePath } from "@/components/site-path";
 import "./globals.css";
+
+const faviconPath = sitePath("/logo.svg");
 
 export const metadata: Metadata = {
   title: "ZABORSKY — заборы и благоустройство",
   description:
     "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
+  icons: {
+    icon: faviconPath,
+  },
 };
 
 export default function RootLayout({
