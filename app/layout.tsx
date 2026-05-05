@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
+import { ContactFloat } from "@/components/contact-float";
 import { sitePath } from "@/components/site-path";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <Footer />
+        <ContactFloat />
       </body>
     </html>
   );
