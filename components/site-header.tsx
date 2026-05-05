@@ -152,12 +152,11 @@ function FenceTreeItem({
 function FenceDropdown({ open, onOpen, onClose, onNavigate }: Omit<DropdownProps, "item" | "align">) {
   return (
     <div className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
-      <MenuLink
-        href="/fences"
-        label="Заборы"
-        onNavigate={onNavigate}
-        className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
-      />
+      <span
+        className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white cursor-default"
+      >
+        Заборы
+      </span>
 
       <div aria-hidden="true" className="absolute left-0 right-0 top-full h-3" />
       <div
@@ -292,12 +291,11 @@ export function SiteHeader() {
 
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
               <div className="flex items-center gap-2">
-                <MenuLink
-                  href="/fences"
-                  label="Заборы"
-                  onNavigate={closeAll}
-                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
-                />
+                <span
+                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
+                >
+                  Заборы
+                </span>
                 <button
                   type="button"
                   className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
