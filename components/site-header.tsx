@@ -56,7 +56,7 @@ function MenuLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={className}
+      className={`select-none ${className}`}
     >
       {label}
     </Link>
@@ -86,15 +86,24 @@ function TreeChildLink({
 
 function SimpleDropdown({ item, open, onOpen, onClose, onNavigate, align = "left" }: DropdownProps) {
   const child = item.children?.[0];
+  const isClickable = !item.children || item.children.length === 0;
 
   return (
     <div className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
-      <MenuLink
-        href={item.href}
-        label={item.label}
-        onNavigate={onNavigate}
-        className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
-      />
+      {isClickable ? (
+        <MenuLink
+          href={item.href}
+          label={item.label}
+          onNavigate={onNavigate}
+          className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
+        />
+      ) : (
+        <span
+          className="select-none text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white cursor-default"
+        >
+          {item.label}
+        </span>
+      )}
 
       <div aria-hidden="true" className="absolute left-0 right-0 top-full h-3" />
       <div
@@ -205,7 +214,7 @@ export function SiteHeader() {
             href="/home"
             label="Главная"
             onNavigate={closeAll}
-            className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
+            className="select-none text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
           />
 
           <FenceDropdown
@@ -216,7 +225,7 @@ export function SiteHeader() {
           />
 
           <SimpleDropdown
-            item={{ label: "Благоустройство", href: "/landscaping", children: landscapingItems }}
+            item={{ label: "Благоустройство", href: "/landscaping", children: landscapingItems } as MenuNode}
             open={openMenu === "landscaping"}
             onOpen={() => setOpenMenu("landscaping")}
             onClose={closeMenus}
@@ -237,13 +246,13 @@ export function SiteHeader() {
             href="/contacts"
             onNavigate={closeAll}
             label="Контакты"
-            className="text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
+            className="select-none text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
           />
         </div>
 
         <button
           type="button"
-          className="inline-flex h-6 w-11 items-center justify-center text-white transition hover:text-white/85 md:hidden"
+          className="select-none inline-flex h-6 w-11 items-center justify-center text-white transition hover:text-white/85 md:hidden"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Закрыть меню" : "Открыть меню"}
           onClick={() => {
@@ -292,7 +301,7 @@ export function SiteHeader() {
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
               <div className="flex items-center gap-2">
                 <span
-                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
+                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
                 >
                   Заборы
                 </span>
@@ -338,12 +347,11 @@ export function SiteHeader() {
 
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
               <div className="flex items-center gap-2">
-                <MenuLink
-                  href="/landscaping"
-                  label="Благоустройство"
-                  onNavigate={closeAll}
-                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
-                />
+                <span
+                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
+                >
+                  Благоустройство
+                </span>
                 <button
                   type="button"
                   className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
