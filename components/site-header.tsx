@@ -299,24 +299,24 @@ export function SiteHeader() {
             />
 
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
-              <div className="flex items-center gap-2">
+              <button
+                type="button"
+                className="flex w-full items-center gap-2 text-left"
+                aria-expanded={mobileSection === "fences"}
+                aria-label="Показать подменю Заборы"
+                onClick={() =>
+                  setMobileSection((value) => (value === "fences" ? null : "fences"))
+                }
+              >
                 <span
-                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
+                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90"
                 >
                   Заборы
                 </span>
-                <button
-                  type="button"
-                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
-                  aria-expanded={mobileSection === "fences"}
-                  aria-label="Показать подменю Заборы"
-                  onClick={() =>
-                    setMobileSection((value) => (value === "fences" ? null : "fences"))
-                  }
-                >
+                <span className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white">
                   ▾
-                </button>
-              </div>
+                </span>
+              </button>
               {mobileSection === "fences" ? (
                 <div className="mt-2 space-y-1 border-white/15 pl-3">
                   {fenceItems.map((item) => (
@@ -346,24 +346,24 @@ export function SiteHeader() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
-              <div className="flex items-center gap-2">
+              <button
+                type="button"
+                className="flex w-full items-center gap-2 text-left"
+                aria-expanded={mobileSection === "landscaping"}
+                aria-label="Показать подменю Благоустройство"
+                onClick={() =>
+                  setMobileSection((value) => (value === "landscaping" ? null : "landscaping"))
+                }
+              >
                 <span
-                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 cursor-default"
+                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90"
                 >
                   Благоустройство
                 </span>
-                <button
-                  type="button"
-                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
-                  aria-expanded={mobileSection === "landscaping"}
-                  aria-label="Показать подменю Благоустройство"
-                  onClick={() =>
-                    setMobileSection((value) => (value === "landscaping" ? null : "landscaping"))
-                  }
-                >
+                <span className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white">
                   ▾
-                </button>
-              </div>
+                </span>
+              </button>
               {mobileSection === "landscaping" ? (
                 <div className="mt-2 space-y-1 pl-3">
                   {landscapingItems.map((item) => (
