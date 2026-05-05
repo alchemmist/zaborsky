@@ -5,21 +5,25 @@ const fences = [
     title: "ЖАЛЮЗИ",
     src: "/images/home/jalusi-example.png",
     alt: "Забор жалюзи в современном исполнении",
+    href: "/fences/euro-jalusi",
   },
   {
     title: "МЕТАЛЛОПЛАНКЕН-РАНЧО",
     src: "/images/home/metall-example.png",
     alt: "Забор из металлопланкена в стиле ранчо",
+    href: "/fences/metal-planken-rancho",
   },
   {
     title: "ЕВРОШТАКЕТНИК",
     src: "/images/home/shtaketnick-example.png",
     alt: "Евроштакетник на участке современного дома",
+    href: "/fences/metal-planken-rancho/euro-shaketnik",
   },
   {
     title: "САЙДИНГ",
     src: "/images/home/siding-example.png",
     alt: "Секционный забор в стиле сайдинга",
+    href: "/fences/siding",
   },
 ];
 
