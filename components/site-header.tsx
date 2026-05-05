@@ -277,7 +277,7 @@ export function SiteHeader() {
       <div
         className={[
           "md:hidden border-t border-white/10 bg-[#5c7887]/96 backdrop-blur-md transition-all duration-200",
-          mobileOpen ? "max-h-[calc(100vh-4.5rem)] opacity-100" : "max-h-0 overflow-hidden opacity-0",
+          mobileOpen ? "max-h-[calc(100vh-4.5rem)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0",
         ].join(" ")}
       >
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
