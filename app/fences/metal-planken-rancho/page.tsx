@@ -62,7 +62,7 @@ export default function MetalPlankenRanchoPage() {
   return (
     <DevelopmentPage
       title="Металлопланкен-ранчо"
-      description="Решение с характером ранчо для тех, кто ценит ритм, объем и современную подачу."
+      description="Забор в стиле «ранчо», имитирует классическую американскую изгородь, имеет повышенную надёжность и жёсткость конструкции и придаёт солидность, ограждаемой территории."
       imageSrc="/images/fences/metal-planken-rancho.png"
       imageAlt="Металлопланкен-ранчо"
     >

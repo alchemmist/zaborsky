@@ -19,7 +19,7 @@ export function AddressSection({
           Наш адрес
         </h2>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
-          <div>
+          <div className="pt-8">
             <p className="text-lg leading-relaxed text-slate-700 sm:text-xl">
               {description}
             </p>

@@ -162,7 +162,7 @@ export default function GitterPage() {
   return (
     <DevelopmentPage
       title="3D сетка Гиттер"
-      description="Практичное и аккуратное решение для ограждения участков и технических зон."
+      description="Забор с высокой степенью защиты и эстетичным внешним видом, используется для ограждения частных территорий, промышленных зон, спортивных объектов."
       imageSrc="/images/fences/3d-setcka.png"
       imageAlt="3D сетка Гиттер"
     >

@@ -62,7 +62,7 @@ export default function EuroShaketnikPage() {
   return (
     <DevelopmentPage
       title="Евроштакетник"
-      description="Универсальный формат забора для частных домов и участков с аккуратной визуальной ритмикой."
+      description="Проветриваемый забор, для частных домов, участков и полисадников, хорошо пропускает свет, можно экспериментировать с цветом, и геометрией построения."
       imageSrc="/images/fences/euro-shaketnik.png"
       imageAlt="Евроштакетник"
     >
