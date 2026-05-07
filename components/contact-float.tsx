@@ -4,6 +4,15 @@ import { useState, useEffect } from "react";
 
 export function ContactFloat() {
   const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => setShowModal(true), 10);
+    } else {
+      setShowModal(false);
+    }
+  }, [open]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
@@ -72,8 +81,8 @@ export function ContactFloat() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" suppressHydrationWarning>
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+        <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${showModal ? 'opacity-100' : 'opacity-0'} `} suppressHydrationWarning>
+          <div className={`w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl transition-all duration-300 ${showModal ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-xl font-semibold uppercase tracking-[0.18em] text-slate-900">
                 Связаться с нами
