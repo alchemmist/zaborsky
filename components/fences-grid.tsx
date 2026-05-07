@@ -29,7 +29,7 @@ const fences = [
 
 export function FencesGrid() {
   return (
-    <section id="fences" className="bg-white px-6 py-20 sm:px-10 lg:px-20 xl:px-28">
+    <section id="fences" className="bg-white px-6 py-6 sm:px-10 lg:px-20 xl:px-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>

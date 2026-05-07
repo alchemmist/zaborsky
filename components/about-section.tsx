@@ -1,7 +1,7 @@
 export function AboutSection() {
   return (
-    <section id="about" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
+    <section id="about" className="bg-white px-6 py-6 pb-20 sm:px-16 sm:pb-24 lg:px-28 lg:pb-28">
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
             О компании
@@ -9,7 +9,7 @@ export function AboutSection() {
           <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
             ZABORSKY
           </h2>
-          <div className="mt-8 space-y-5 text-base leading-8 text-slate-600 sm:text-lg">
+          <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600 sm:text-xl">
             <p>
               Заборский - это успешный бренд и годами накопленный опыт монтажа
               красивых и стильных заборов по всей России, с инновационными
