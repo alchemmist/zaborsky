@@ -69,11 +69,14 @@ export default function EuroJalusiPage() {
   return (
     <DevelopmentPage
       title="Еврожалюзи"
-      description="Уникальный, надёжный вид ограждения с современным дизайном. Сплошные снаружи, но при этом сохраняют видимость внутри участка, пропускают свет и обеспечивают хорошее проветривание."
       imageSrc="/images/fences/euro-jalusi.png"
       imageAlt="Еврожалюзи"
     >
-      <CatalogPage specs={specs} products={products} />
+      <CatalogPage 
+        specs={specs} 
+        products={products} 
+        description="Уникальный, надёжный вид ограждения с современным дизайном. Сплошные снаружи, но при этом сохраняют видимость внутри участка, пропускают свет и обеспечивают хорошее проветривание."
+      />
     </DevelopmentPage>
   );
 }

@@ -62,11 +62,13 @@ export default function EuroShaketnikPage() {
   return (
     <DevelopmentPage
       title="Евроштакетник"
-      description="Проветриваемый забор, для частных домов, участков и полисадников, хорошо пропускает свет, можно экспериментировать с цветом, и геометрией построения."
       imageSrc="/images/fences/euro-shaketnik.png"
       imageAlt="Евроштакетник"
     >
-      <CatalogPage products={products} />
+      <CatalogPage 
+        products={products} 
+        description="Проветриваемый забор, для частных домов, участков и полисадников, хорошо пропускает свет, можно экспериментировать с цветом, и геометрией построения."
+      />
     </DevelopmentPage>
   );
 }

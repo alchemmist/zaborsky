@@ -18,6 +18,7 @@ type DetailedCatalogPageProps = {
   imageSrc: string;
   imageAlt: string;
   products: DetailedCatalogProduct[];
+  description?: string;
 };
 
 function DetailedCatalogCard({
@@ -106,6 +107,7 @@ export function DetailedCatalogPage({
   imageSrc,
   imageAlt,
   products,
+  description,
 }: DetailedCatalogPageProps) {
   return (
     <section className="bg-white py-16 sm:py-20">
@@ -113,6 +115,11 @@ export function DetailedCatalogPage({
         <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
           Каталог
         </h2>
+        {description ? (
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+            {description}
+          </p>
+        ) : null}
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
             <DetailedCatalogCard

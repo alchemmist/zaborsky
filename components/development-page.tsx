@@ -4,7 +4,6 @@ import { sitePath } from "@/components/site-path";
 
 type DevelopmentPageProps = {
   title: ReactNode;
-  description: string;
   imageSrc: string;
   imageAlt: string;
   children?: ReactNode;
@@ -12,7 +11,6 @@ type DevelopmentPageProps = {
 
 export function DevelopmentPage({
   title,
-  description,
   imageSrc,
   imageAlt,
   children,
@@ -35,9 +33,6 @@ export function DevelopmentPage({
             <h1 className="text-4xl font-semibold uppercase tracking-[0.22em] text-balance sm:text-5xl md:text-6xl lg:text-7xl">
               {title}
             </h1>
-            <p className="mt-6 max-w-2xl text-sm uppercase tracking-[0.24em] text-white/82 sm:text-base md:text-lg">
-              {description}
-            </p>
           </div>
         </div>
       </section>

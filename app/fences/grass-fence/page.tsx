@@ -46,12 +46,14 @@ export default function GrassFencePage() {
   return (
     <DevelopmentPage
       title="Травяной забор (Grass Fence)"
-      description="Современное решение для создания уюта и приватности на вашем участке."
       imageSrc="/images/fences/grass-fence.png"
       imageAlt="Травяной забор Grass Fence"
     >
       <ExamplesGallery examples={examples} />
-      <CatalogPage products={products} />
+      <CatalogPage 
+        products={products} 
+        description="Современное решение для создания уюта и приватности на вашем участке."
+      />
     </DevelopmentPage>
   );
 }

@@ -47,12 +47,15 @@ export default function StepPaversPage() {
   return (
     <DevelopmentPage
       title="Шаговые плиты"
-      description="Функциональный элемент благоустройства для удобных и аккуратных дорожек на участке."
       imageSrc="/images/landscaping/step-pvaers.png"
       imageAlt="Шаговые плиты"
     >
       <ExamplesGallery examples={examples} size="large" />
-      <CatalogPage products={products} compactImages />
+      <CatalogPage 
+        products={products} 
+        compactImages 
+        description="Функциональный элемент благоустройства для удобных и аккуратных дорожек на участке."
+      />
     </DevelopmentPage>
   );
 }

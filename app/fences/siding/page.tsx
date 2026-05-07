@@ -35,11 +35,13 @@ export default function SidingPage() {
   return (
     <DevelopmentPage
       title="Сайдинг"
-      description="Высокопрочный и практичный вид забора, имеющий привлекательный дизайн."
       imageSrc="/images/fences/siding.png"
       imageAlt="Сайдинг"
     >
-      <CatalogPage products={products} />
+      <CatalogPage 
+        products={products} 
+        description="Высокопрочный и практичный вид забора, имеющий привлекательный дизайн."
+      />
     </DevelopmentPage>
   );
 }

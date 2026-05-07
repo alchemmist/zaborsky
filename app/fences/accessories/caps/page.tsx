@@ -316,12 +316,15 @@ export default function CapsPage() {
   return (
     <DevelopmentPage
       title="Колпаки на столбы ZKING"
-      description="Защитные и декоративные колпаки, создают законченный вид забора, решения с подсветкой, премиально выделят вашу территорию, в тёмное время суток."
       imageSrc="/images/fences/caps.png"
       imageAlt="Колпаки ZKING"
     >
       <ExamplesGallery examples={examples} />
-      <CatalogPage products={products} compactImages />
+      <CatalogPage 
+        products={products} 
+        compactImages 
+        description="Защитные и декоративные колпаки, создают законченный вид забора, решения с подсветкой, премиально выделят вашу территорию, в тёмное время суток."
+      />
     </DevelopmentPage>
   );
 }
