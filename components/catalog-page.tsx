@@ -60,8 +60,19 @@ export function CatalogPage({ specs, products, compactImages, description }: Cat
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div>
+          <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+            Каталог
+          </h2>
+          {description ? (
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+              {description}
+            </p>
+          ) : null}
+        </div>
+
         {specs?.length ? (
-          <div className="max-w-4xl">
+          <div className="mt-16 max-w-4xl">
             <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
               Характеристики
             </h2>
@@ -73,20 +84,10 @@ export function CatalogPage({ specs, products, compactImages, description }: Cat
           </div>
         ) : null}
 
-        <div className={specs?.length ? "mt-16" : ""}>
-          <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
-            Каталог
-          </h2>
-          {description ? (
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl">
-              {description}
-            </p>
-          ) : null}
-          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {products.map((product) => (
-              <CatalogProductCard key={product.id} product={product} compact={compactImages} />
-            ))}
-          </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {products.map((product) => (
+            <CatalogProductCard key={product.id} product={product} compact={compactImages} />
+          ))}
         </div>
       </div>
     </section>
