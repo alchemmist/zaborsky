@@ -18,5 +18,4 @@ jobs:
           script: |
             cd ${{ secrets.SSH_PROJECT_PATH }}
             git pull origin main --rebase
-            docker compose up --no-deps --build -d app
-            docker image prune -f
+            docker compose up --build -d

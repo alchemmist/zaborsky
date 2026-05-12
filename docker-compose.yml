@@ -4,18 +4,29 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    networks:
+      - default
 
   caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
+    image: caddy:latest
+    container_name: caddy
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
+    depends_on:
+      - app
+    restart: unless-stopped
+    networks:
+      - default
 
 volumes:
   caddy_data:
   caddy_config:
+
+networks:
+  default:
+    driver: bridge
