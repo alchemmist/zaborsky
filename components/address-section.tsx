@@ -13,7 +13,7 @@ export function AddressSection({
   imageAlt,
 }: AddressSectionProps) {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white pt-6 sm:pt-8 pb-16 sm:pb-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
           Наш адрес

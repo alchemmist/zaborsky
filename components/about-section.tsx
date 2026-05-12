@@ -1,3 +1,5 @@
+import { TelegramLink, MaxLink } from "@/components/social-icons";
+
 export function AboutSection() {
   return (
     <section id="about" className="bg-white px-6 py-6 pb-20 sm:px-16 sm:pb-24 lg:px-28 lg:pb-28">
@@ -63,6 +65,15 @@ export function AboutSection() {
               >
                 prometiz@inbox.ru
               </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-500">
+                Telegram / MAX
+              </p>
+              <div className="mt-2 flex items-center gap-3 text-[#5c7887]">
+                <TelegramLink className="h-7 w-7 transition hover:text-[#4a6575]" />
+                <MaxLink className="h-7 w-7 transition hover:text-[#4a6575]" />
+              </div>
             </div>
           </div>
         </aside>

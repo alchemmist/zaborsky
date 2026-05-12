@@ -1,4 +1,5 @@
 import { sitePath } from "@/components/site-path";
+import { TelegramLink, MaxLink } from "@/components/social-icons";
 
 interface AboutPageSectionProps {
   title: string;
@@ -56,6 +57,13 @@ export function AboutPageSection({
                 >
                   prometiz@inbox.ru
                 </a>
+              </div>
+              <div>
+                <p className="text-sm uppercase tracking-[0.12em] text-white/70 mb-2">Telegram / MAX</p>
+                <div className="flex items-center gap-3 text-white/80">
+                  <TelegramLink className="h-7 w-7 transition hover:text-white" />
+                  <MaxLink className="h-7 w-7 transition hover:text-white" />
+                </div>
               </div>
             </div>
           </div>
