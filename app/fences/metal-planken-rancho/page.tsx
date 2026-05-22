@@ -78,6 +78,7 @@ export default function MetalPlankenRanchoPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Металлопланкен-ранчо" },
       ]}
+      breadcrumbsPath="/fences/metal-planken-rancho"
     >
       <CatalogPage 
         products={products} 

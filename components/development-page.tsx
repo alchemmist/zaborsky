@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { sitePath } from "@/components/site-path";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
+import { BreadcrumbJsonLd } from "@/components/json-ld";
 
 type DevelopmentPageProps = {
   title: ReactNode;
@@ -9,6 +10,7 @@ type DevelopmentPageProps = {
   imageAlt: string;
   children?: ReactNode;
   breadcrumbs?: BreadcrumbItem[];
+  breadcrumbsPath?: string;
 };
 
 export function DevelopmentPage({
@@ -17,10 +19,24 @@ export function DevelopmentPage({
   imageAlt,
   children,
   breadcrumbs,
+  breadcrumbsPath,
 }: DevelopmentPageProps) {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
+      {breadcrumbs ? (
+        <>
+          <BreadcrumbJsonLd
+            items={[
+              { name: "Главная", url: "/" },
+              ...breadcrumbs.map((b) => ({
+                name: b.label,
+                url: b.href ?? breadcrumbsPath ?? "/",
+              })),
+            ]}
+          />
+          <Breadcrumbs items={breadcrumbs} />
+        </>
+      ) : null}
       <section className="relative isolate flex h-[50svh] min-h-[420px] items-center overflow-hidden bg-slate-900">
         <Image
           src={sitePath(imageSrc)}

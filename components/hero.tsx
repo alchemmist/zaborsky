@@ -6,7 +6,7 @@ export function Hero() {
     <section id="hero" className="relative h-[50svh] min-h-[420px] overflow-hidden bg-[#5c7887]">
       <Image
         src={sitePath("/images/home/home-background.png")}
-        alt="Современный дом с ограждением ZABORSKY"
+        alt="Современный дом с ограждением Заборский"
         fill
         priority
         sizes="100vw"
@@ -18,7 +18,7 @@ export function Hero() {
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-16 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-center text-white">
           <h1 className="text-3xl uppercase text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-            ZABORSKY — СТИЛЬ СНАРУЖИ И ВНУТРИ
+            Заборский — СТИЛЬ СНАРУЖИ И ВНУТРИ
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm uppercase tracking-[0.26em] text-white/80 sm:text-base md:text-lg">
             ЗАБОРЫ ЖАЛЮЗИ — ЛУЧШИЙ СТИЛЬ ВАШЕГО УЧАСТКА

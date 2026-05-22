@@ -5,10 +5,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: "Свяжитесь с ZABORSKY: телефон 8-965-938-33-73, email prometiz@inbox.ru, Telegram, MAX.",
+  description: "Свяжитесь с Заборский: телефон 8-965-938-33-73, email prometiz@inbox.ru, Telegram, MAX.",
   openGraph: {
     title: "Контакты",
-    description: "Свяжитесь с ZABORSKY: телефон 8-965-938-33-73, email prometiz@inbox.ru, Telegram, MAX.",
+    description: "Свяжитесь с Заборский: телефон 8-965-938-33-73, email prometiz@inbox.ru, Telegram, MAX.",
   },
 };
 
@@ -21,6 +21,7 @@ export default function ContactsPage() {
       breadcrumbs={[
         { label: "Контакты" },
       ]}
+      breadcrumbsPath="/contacts"
     >
       <section className="bg-white pt-16 sm:pt-20 pb-6 sm:pb-8">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">

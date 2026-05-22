@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
+import { ProductJsonLd } from "@/components/json-ld";
 
 export type CatalogSpec = string;
 
@@ -57,8 +58,18 @@ function CatalogProductCard({ product, compact }: { product: CatalogProduct; com
 }
 
 export function CatalogPage({ specs, products, compactImages, description }: CatalogPageProps) {
+  const firstProduct = products[0];
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <>
+      {firstProduct ? (
+        <ProductJsonLd
+          name={firstProduct.title}
+          description={`${firstProduct.title}, цвет: ${firstProduct.color}${firstProduct.extra ? `, ${firstProduct.extra}` : ""}`}
+          price={firstProduct.price.replace(/[^\d]/g, "")}
+          image={firstProduct.image}
+        />
+      ) : null}
+      <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
           <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
@@ -91,5 +102,6 @@ export function CatalogPage({ specs, products, compactImages, description }: Cat
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -133,6 +133,7 @@ export default function ParapetsPage() {
         { label: "Комплектующие", href: "/fences/accessories" },
         { label: "Парапеты" },
       ]}
+      breadcrumbsPath="/fences/accessories/parapets"
     >
       <CatalogPage 
         products={products} 

@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Жалюзи Реснички",
-  description: "Забор жалюзи Реснички от ZABORSKY. Белый, тёмный шоколад, серый графит.",
+  description: "Забор жалюзи Реснички от Заборский. Белый, тёмный шоколад, серый графит.",
   openGraph: {
     title: "Жалюзи Реснички",
-    description: "Забор жалюзи Реснички от ZABORSKY. Белый, тёмный шоколад, серый графит.",
+    description: "Забор жалюзи Реснички от Заборский. Белый, тёмный шоколад, серый графит.",
   },
 };
 
@@ -63,6 +63,7 @@ export default function ResnichkiPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Жалюзи Реснички" },
       ]}
+      breadcrumbsPath="/fences/resnichki"
     >
       <CatalogPage 
         specs={specs} 

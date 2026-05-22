@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Евроштакетник",
-  description: "Евроштакетник от ZABORSKY. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
+  description: "Евроштакетник от Заборский. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
   openGraph: {
     title: "Евроштакетник",
-    description: "Евроштакетник от ZABORSKY. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
+    description: "Евроштакетник от Заборский. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
   },
 };
 
@@ -79,6 +79,7 @@ export default function EuroShaketnikPage() {
         { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho" },
         { label: "Евроштакетник" },
       ]}
+      breadcrumbsPath="/fences/metal-planken-rancho/euro-shaketnik"
     >
       <CatalogPage 
         products={products} 

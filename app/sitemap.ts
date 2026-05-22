@@ -22,6 +22,9 @@ const routes = [
   { url: `${siteUrl}/fences/siding`, priority: 0.6, changeFrequency: "weekly" as const },
   { url: `${siteUrl}/landscaping`, priority: 0.7, changeFrequency: "monthly" as const },
   { url: `${siteUrl}/landscaping/step-pavers`, priority: 0.5, changeFrequency: "monthly" as const },
+  { url: `${siteUrl}/faq`, priority: 0.5, changeFrequency: "monthly" as const },
+  { url: `${siteUrl}/prices`, priority: 0.8, changeFrequency: "weekly" as const },
+  { url: `${siteUrl}/services/installation`, priority: 0.7, changeFrequency: "weekly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

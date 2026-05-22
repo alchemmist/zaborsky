@@ -3,7 +3,7 @@ import { Oswald, Open_Sans } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { ContactFloat } from "@/components/contact-float";
-import { OrganizationJsonLd } from "@/components/json-ld";
+import { OrganizationJsonLd, LocalBusinessJsonLd } from "@/components/json-ld";
 import { sitePath } from "@/components/site-path";
 import "./globals.css";
 
@@ -28,8 +28,8 @@ const siteUrl = "https://xn--80adjbqf5a.xn--p1ai";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ZABORSKY — заборы и благоустройство",
-    template: "%s | ZABORSKY",
+    default: "Заборский — заборы и благоустройство",
+    template: "%s | Заборский",
   },
   description:
     "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
@@ -39,14 +39,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    siteName: "ZABORSKY",
-    title: "ZABORSKY — заборы и благоустройство",
+    siteName: "Заборский",
+    title: "Заборский — заборы и благоустройство",
     description:
       "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
+    images: [
+      {
+        url: `${siteUrl}/logo.svg`,
+        width: 512,
+        height: 512,
+        alt: "Заборский",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZABORSKY — заборы и благоустройство",
+    title: "Заборский — заборы и благоустройство",
     description:
       "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
   },
@@ -65,6 +73,7 @@ export default function RootLayout({
     <html lang="ru" className={`h-full antialiased ${oswald.variable} ${openSans.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
+        <LocalBusinessJsonLd />
         <SiteHeader />
         {children}
         <Footer />

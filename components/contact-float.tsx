@@ -28,7 +28,7 @@ export function ContactFloat() {
     e.preventDefault();
     if (!name || !phone) return;
 
-    const subject = encodeURIComponent("Заявка с сайта ZABORSKY");
+    const subject = encodeURIComponent("Заявка с сайта Заборский");
     const body = encodeURIComponent(
       `Имя: ${name}\nТелефон: ${phone}\n${comment ? `Комментарий: ${comment}` : ""}`
     );

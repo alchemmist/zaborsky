@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
+import { ProductJsonLd } from "@/components/json-ld";
 
 export type DetailedCatalogProduct = {
   id: string;
@@ -109,8 +110,17 @@ export function DetailedCatalogPage({
   products,
   description,
 }: DetailedCatalogPageProps) {
+  const firstProduct = products[0];
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <>
+      {firstProduct ? (
+        <ProductJsonLd
+          name={firstProduct.title}
+          description={`${firstProduct.title}, ${Object.values(firstProduct).filter(v => typeof v === "string" && v.length < 100).join(", ")}`}
+          image={imageSrc}
+        />
+      ) : null}
+      <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
           Каталог
@@ -132,5 +142,6 @@ export function DetailedCatalogPage({
         </div>
       </div>
     </section>
+    </>
   );
 }

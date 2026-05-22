@@ -8,10 +8,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "3D сетка Гиттер",
-  description: "3D сетка Гиттер от ZABORSKY. Различные диаметры прутка, размеры ячейки и цвета.",
+  description: "3D сетка Гиттер от Заборский. Различные диаметры прутка, размеры ячейки и цвета.",
   openGraph: {
     title: "3D сетка Гиттер",
-    description: "3D сетка Гиттер от ZABORSKY. Различные диаметры прутка, размеры ячейки и цвета.",
+    description: "3D сетка Гиттер от Заборский. Различные диаметры прутка, размеры ячейки и цвета.",
   },
 };
 
@@ -178,6 +178,7 @@ export default function GitterPage() {
         { label: "Заборы", href: "/fences" },
         { label: "3D сетка Гиттер" },
       ]}
+      breadcrumbsPath="/fences/gitter"
     >
       <ExamplesGallery examples={examples} />
       <DetailedCatalogPage

@@ -63,6 +63,7 @@ export default function StepPaversPage() {
         { label: "Благоустройство", href: "/landscaping" },
         { label: "Шаговые плиты" },
       ]}
+      breadcrumbsPath="/landscaping/step-pavers"
     >
       <ExamplesGallery examples={examples} size="large" />
       <CatalogPage 

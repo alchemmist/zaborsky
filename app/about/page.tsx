@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "О компании",
-  description: "ZABORSKY — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
+  description: "Заборский — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
   openGraph: {
     title: "О компании",
-    description: "ZABORSKY — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
+    description: "Заборский — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
   },
 };
 
@@ -20,6 +20,7 @@ export default function AboutPage() {
       breadcrumbs={[
         { label: "О нас" },
       ]}
+      breadcrumbsPath="/about"
     >
       <AboutPageSection
         title="Наша история"

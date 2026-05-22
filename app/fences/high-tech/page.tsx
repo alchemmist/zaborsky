@@ -90,6 +90,7 @@ export default function HighTechPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Жалюзи Хай-Тек" },
       ]}
+      breadcrumbsPath="/fences/high-tech"
     >
       <CatalogPage 
         specs={specs} 

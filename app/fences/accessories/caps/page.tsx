@@ -333,6 +333,7 @@ export default function CapsPage() {
         { label: "Комплектующие", href: "/fences/accessories" },
         { label: "Колпаки" },
       ]}
+      breadcrumbsPath="/fences/accessories/caps"
     >
       <ExamplesGallery examples={examples} />
       <CatalogPage 

@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Сайдинг",
-  description: "Металлический сайдинг для забора от ZABORSKY. Премиальные покрытия Printech и SteelArt.",
+  description: "Металлический сайдинг для забора от Заборский. Премиальные покрытия Printech и SteelArt.",
   openGraph: {
     title: "Сайдинг",
-    description: "Металлический сайдинг для забора от ZABORSKY. Премиальные покрытия Printech и SteelArt.",
+    description: "Металлический сайдинг для забора от Заборский. Премиальные покрытия Printech и SteelArt.",
   },
 };
 
@@ -51,6 +51,7 @@ export default function SidingPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Сайдинг" },
       ]}
+      breadcrumbsPath="/fences/siding"
     >
       <CatalogPage 
         products={products} 

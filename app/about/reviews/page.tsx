@@ -1,14 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { ReviewCard } from "@/components/review-card";
 import { ProjectsGallery } from "@/components/projects-gallery";
+import { ReviewJsonLd } from "@/components/json-ld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Отзывы",
-  description: "Отзывы наших клиентов о работе ZABORSKY. Реальные проекты и результаты.",
+  description: "Отзывы наших клиентов о работе Заборский. Реальные проекты и результаты.",
   openGraph: {
     title: "Отзывы",
-    description: "Отзывы наших клиентов о работе ZABORSKY. Реальные проекты и результаты.",
+    description: "Отзывы наших клиентов о работе Заборский. Реальные проекты и результаты.",
   },
 };
 
@@ -63,7 +64,12 @@ export default function ReviewsPage() {
         { label: "О нас", href: "/about" },
         { label: "Отзывы" },
       ]}
+      breadcrumbsPath="/about/reviews"
     >
+      <ReviewJsonLd
+        reviews={reviews.map((r) => ({ text: r.text, author: r.author }))}
+        itemReviewedName="Заборский — заборы под ключ"
+      />
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-12 text-center text-2xl font-semibold uppercase tracking-[0.2em] text-slate-900 sm:text-3xl">

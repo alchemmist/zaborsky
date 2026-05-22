@@ -20,6 +20,7 @@ export default function AccessoriesPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Комплектующие" },
       ]}
+      breadcrumbsPath="/fences/accessories"
     />
   );
 }

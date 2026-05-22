@@ -21,7 +21,7 @@ const fenceItems: MenuNode[] = [
   { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence" },
   {
     label: "Комплектующие для заборов",
-    href: "/fences/accessories",
+    href: "",
     children: [
       { label: "Колпаки ZKING", href: "/fences/accessories/caps" },
       { label: "Парапеты ZKING", href: "/fences/accessories/parapets" },
@@ -29,7 +29,11 @@ const fenceItems: MenuNode[] = [
   },
 ];
 
-const aboutItems: MenuNode[] = [{ label: "Отзывы", href: "/about/reviews" }];
+const aboutItems: MenuNode[] = [
+  { label: "История", href: "/about" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Отзывы", href: "/about/reviews" },
+];
 const landscapingItems: MenuNode[] = [{ label: "Шаговые плиты", href: "/landscaping/step-pavers" }];
 
 type DropdownProps = {
@@ -85,7 +89,6 @@ function TreeChildLink({
 }
 
 function SimpleDropdown({ item, open, onOpen, onClose, onNavigate, align = "left" }: DropdownProps) {
-  const child = item.children?.[0];
   const isClickable = !item.children || item.children.length === 0;
 
   return (
@@ -113,14 +116,17 @@ function SimpleDropdown({ item, open, onOpen, onClose, onNavigate, align = "left
           open ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0",
         ].join(" ")}
       >
-        {child ? (
-          <MenuLink
-            href={child.href}
-            label={child.label}
-            onNavigate={onNavigate}
-            className="block rounded-xl px-4 py-3 text-left text-sm font-normal uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/10 hover:text-white"
-          />
-        ) : null}
+        <div className="space-y-1">
+          {item.children?.map((child) => (
+            <MenuLink
+              key={child.label}
+              href={child.href}
+              label={child.label}
+              onNavigate={onNavigate}
+              className="block rounded-xl px-4 py-3 text-left text-sm font-normal uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/10 hover:text-white"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -133,14 +139,21 @@ function FenceTreeItem({
   item: MenuNode;
   onNavigate: () => void;
 }) {
+  const hasChildren = item.children && item.children.length > 0;
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-      <MenuLink
-        href={item.href}
-        label={item.label}
-        onNavigate={onNavigate}
-        className="block rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10 hover:text-white"
-      />
+      {hasChildren ? (
+        <span className="select-none block rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.14em] text-white/70">
+          {item.label}
+        </span>
+      ) : (
+        <MenuLink
+          href={item.href}
+          label={item.label}
+          onNavigate={onNavigate}
+          className="block rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10 hover:text-white"
+        />
+      )}
 
       {item.children?.length ? (
         <div className="mt-2 border-white/20 pl-4">
@@ -202,8 +215,8 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#5c7887]/40 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/home" onClick={closeAll} className="select-none text-xl text-white">
-          ZABORSKY
+        <Link href="/" onClick={closeAll} className="select-none text-xl text-white">
+          ЗАБОРСКИЙ
         </Link>
 
         <div
@@ -211,7 +224,7 @@ export function SiteHeader() {
           style={{ fontFamily: "var(--font-open-sans)" }}
         >
           <MenuLink
-            href="/home"
+            href="/"
             label="Главная"
             onNavigate={closeAll}
             className="select-none text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
@@ -292,7 +305,7 @@ export function SiteHeader() {
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
           <nav className="flex flex-col gap-2 text-white">
             <MenuLink
-              href="/home"
+              href="/"
               label="Главная"
               onNavigate={closeAll}
               className="rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
@@ -319,28 +332,37 @@ export function SiteHeader() {
               </button>
               {mobileSection === "fences" ? (
                 <div className="mt-2 space-y-1 border-white/15 pl-3">
-                  {fenceItems.map((item) => (
-                    <div key={item.label} className="rounded-xl bg-white/5 p-2">
-                      <MenuLink
-                        href={item.href}
-                        label={item.label}
-                        onNavigate={closeAll}
-                        className="block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10"
-                      />
-                      {item.children?.length ? (
-                        <div className="mt-1 border-white/15 pl-3">
-                          {item.children.map((child) => (
-                            <TreeChildLink
-                              key={child.label}
-                              href={child.href}
-                              label={child.label}
-                              onNavigate={closeAll}
-                            />
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
-                  ))}
+                  {fenceItems.map((item) => {
+                    const hasChildren = item.children && item.children.length > 0;
+                    return (
+                      <div key={item.label} className="rounded-xl bg-white/5 p-2">
+                        {hasChildren ? (
+                          <span className="select-none block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/70">
+                            {item.label}
+                          </span>
+                        ) : (
+                          <MenuLink
+                            href={item.href}
+                            label={item.label}
+                            onNavigate={closeAll}
+                            className="block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10"
+                          />
+                        )}
+                        {item.children?.length ? (
+                          <div className="mt-1 border-white/15 pl-3">
+                            {item.children.map((child) => (
+                              <TreeChildLink
+                                key={child.label}
+                                href={child.href}
+                                label={child.label}
+                                onNavigate={closeAll}
+                              />
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </div>
               ) : null}
             </div>
@@ -380,25 +402,24 @@ export function SiteHeader() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 px-2 py-2">
-              <div className="flex items-center gap-2">
-                <MenuLink
-                  href="/about"
-                  label="О нас"
-                  onNavigate={closeAll}
-                  className="flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"
-                />
-                <button
-                  type="button"
-                  className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white"
-                  aria-expanded={mobileSection === "about"}
-                  aria-label="Показать подменю О нас"
-                  onClick={() =>
-                    setMobileSection((value) => (value === "about" ? null : "about"))
-                  }
+              <button
+                type="button"
+                className="flex w-full items-center gap-2 text-left"
+                aria-expanded={mobileSection === "about"}
+                aria-label="Показать подменю О нас"
+                onClick={() =>
+                  setMobileSection((value) => (value === "about" ? null : "about"))
+                }
+              >
+                <span
+                  className="select-none flex-1 rounded-xl px-3 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90"
                 >
+                  О нас
+                </span>
+                <span className="rounded-xl p-3 text-white/80 transition hover:bg-white/10 hover:text-white">
                   ▾
-                </button>
-              </div>
+                </span>
+              </button>
               {mobileSection === "about" ? (
                 <div className="mt-2 space-y-1 pl-3">
                   {aboutItems.map((item) => (

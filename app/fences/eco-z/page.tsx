@@ -1,5 +1,6 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import { FaqSection, type FaqItem } from "@/components/faq-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +11,21 @@ export const metadata: Metadata = {
     description: "Жалюзи ЭКО-Z и усиленные ЭКО-Z US. Цены от 181 руб/п.м. Серый графит, шоколад, белый, принтек.",
   },
 };
+
+const faqItems: FaqItem[] = [
+  {
+    question: "Чем отличаются ЭКО-Z и ЭКО-Z US?",
+    answer: "ЭКО-Z US — усиленная версия с дополнительными рёбрами жёсткости и увеличенной толщиной металла. Рекомендуется для участков с повышенными ветровыми нагрузками и для заборов большой высоты.",
+  },
+  {
+    question: "Какие цвета доступны для ЭКО-Z?",
+    answer: "RAL7024/7024 серый графит, RAL8019/8019 тёмный шоколад, RAL9003/9003 белый. Все цвета доступны в двустороннем матовом покрытии. Также доступны премиальные принтеки: Чёрное дерево 3D, Тёмный дуб 3D, Античное дерево 3D.",
+  },
+  {
+    question: "Сколько стоит забор ЭКО-Z под ключ?",
+    answer: "Цена материала от 127 руб/п.м, усиленная версия ЭКО-Z US — от 188 руб/п.м. Итоговая стоимость зависит от высоты, длины и сложности монтажа. Бесплатный расчёт по телефону.",
+  },
+];
 
 const specs = [
   "Рекомендуемое количество: 9-10 шт на 1 погонный метр высоты",
@@ -136,12 +152,14 @@ export default function EcoZPage() {
         { label: "Заборы", href: "/fences" },
         { label: "Жалюзи ЭКО-Z и ЭКО-Z US" },
       ]}
+      breadcrumbsPath="/fences/eco-z"
     >
       <CatalogPage 
         specs={specs} 
         products={products} 
         description="Лаконичное решение для современного участка с акцентом на геометрию и приватность."
       />
+      <FaqSection items={faqItems} />
     </DevelopmentPage>
   );
 }

@@ -9,7 +9,7 @@ export function AboutSection() {
             О компании
           </p>
           <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
-            ZABORSKY
+            Заборский
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600 sm:text-xl">
             <p>

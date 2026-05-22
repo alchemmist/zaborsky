@@ -62,6 +62,7 @@ export default function GrassFencePage() {
         { label: "Заборы", href: "/fences" },
         { label: "Травяной забор (Grass Fence)" },
       ]}
+      breadcrumbsPath="/fences/grass-fence"
     >
       <ExamplesGallery examples={examples} />
       <CatalogPage 
