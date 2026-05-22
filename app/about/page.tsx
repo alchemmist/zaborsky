@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { AboutPageSection } from "@/components/about-page-section";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "О компании",
+  description: "ZABORSKY — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
+  openGraph: {
+    title: "О компании",
+    description: "ZABORSKY — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -7,6 +17,9 @@ export default function AboutPage() {
       title="О нас"
       imageSrc="/images/about/about-root.png"
       imageAlt="О нас"
+      breadcrumbs={[
+        { label: "О нас" },
+      ]}
     >
       <AboutPageSection
         title="Наша история"

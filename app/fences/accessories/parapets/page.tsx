@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Парапеты ZKING",
+  description: "Парапеты ZKING: Монблан, Эверест, Бона, Эльбрус. Различные размеры под любые столбы.",
+  openGraph: {
+    title: "Парапеты ZKING",
+    description: "Парапеты ZKING: Монблан, Эверест, Бона, Эльбрус. Различные размеры под любые столбы.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -118,6 +128,11 @@ export default function ParapetsPage() {
       title="Парапеты ZKING"
       imageSrc="/images/fences/parapets.png"
       imageAlt="Парапеты ZKING"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Комплектующие", href: "/fences/accessories" },
+        { label: "Парапеты" },
+      ]}
     >
       <CatalogPage 
         products={products} 

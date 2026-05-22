@@ -4,6 +4,16 @@ import {
   type DetailedCatalogProduct,
 } from "@/components/detailed-catalog-page";
 import { ExamplesGallery } from "@/components/examples-gallery";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "3D сетка Гиттер",
+  description: "3D сетка Гиттер от ZABORSKY. Различные диаметры прутка, размеры ячейки и цвета.",
+  openGraph: {
+    title: "3D сетка Гиттер",
+    description: "3D сетка Гиттер от ZABORSKY. Различные диаметры прутка, размеры ячейки и цвета.",
+  },
+};
 
 const products: DetailedCatalogProduct[] = [
   {
@@ -164,6 +174,10 @@ export default function GitterPage() {
       title="3D сетка Гиттер"
       imageSrc="/images/fences/3d-setcka.png"
       imageAlt="3D сетка Гиттер"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "3D сетка Гиттер" },
+      ]}
     >
       <ExamplesGallery examples={examples} />
       <DetailedCatalogPage

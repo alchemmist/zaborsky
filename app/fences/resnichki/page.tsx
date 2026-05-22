@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Жалюзи Реснички",
+  description: "Забор жалюзи Реснички от ZABORSKY. Белый, тёмный шоколад, серый графит.",
+  openGraph: {
+    title: "Жалюзи Реснички",
+    description: "Забор жалюзи Реснички от ZABORSKY. Белый, тёмный шоколад, серый графит.",
+  },
+};
 
 const specs = [
   "Рекомендуемое количество: 9 шт на 1 погонный метр высоты",
@@ -49,6 +59,10 @@ export default function ResnichkiPage() {
       title="Жалюзи Реснички"
       imageSrc="/images/fences/resnichki.png"
       imageAlt="Жалюзи Реснички"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Жалюзи Реснички" },
+      ]}
     >
       <CatalogPage 
         specs={specs} 

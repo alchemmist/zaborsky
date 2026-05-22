@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Жалюзи ЭКО-Z и ЭКО-Z US",
+  description: "Жалюзи ЭКО-Z и усиленные ЭКО-Z US. Цены от 181 руб/п.м. Серый графит, шоколад, белый, принтек.",
+  openGraph: {
+    title: "Жалюзи ЭКО-Z и ЭКО-Z US",
+    description: "Жалюзи ЭКО-Z и усиленные ЭКО-Z US. Цены от 181 руб/п.м. Серый графит, шоколад, белый, принтек.",
+  },
+};
 
 const specs = [
   "Рекомендуемое количество: 9-10 шт на 1 погонный метр высоты",
@@ -122,6 +132,10 @@ export default function EcoZPage() {
       title="Жалюзи ЭКО-Z и ЭКО-Z US"
       imageSrc="/images/fences/euro-jalusi-eco-z.png"
       imageAlt="Жалюзи ЭКО-Z и ЭКО-Z US"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Жалюзи ЭКО-Z и ЭКО-Z US" },
+      ]}
     >
       <CatalogPage 
         specs={specs} 

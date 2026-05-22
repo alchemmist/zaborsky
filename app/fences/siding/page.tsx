@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Сайдинг",
+  description: "Металлический сайдинг для забора от ZABORSKY. Премиальные покрытия Printech и SteelArt.",
+  openGraph: {
+    title: "Сайдинг",
+    description: "Металлический сайдинг для забора от ZABORSKY. Премиальные покрытия Printech и SteelArt.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -37,6 +47,10 @@ export default function SidingPage() {
       title="Сайдинг"
       imageSrc="/images/fences/siding.png"
       imageAlt="Сайдинг"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Сайдинг" },
+      ]}
     >
       <CatalogPage 
         products={products} 

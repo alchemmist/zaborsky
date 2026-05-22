@@ -1,6 +1,16 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { ReviewCard } from "@/components/review-card";
 import { ProjectsGallery } from "@/components/projects-gallery";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Отзывы",
+  description: "Отзывы наших клиентов о работе ZABORSKY. Реальные проекты и результаты.",
+  openGraph: {
+    title: "Отзывы",
+    description: "Отзывы наших клиентов о работе ZABORSKY. Реальные проекты и результаты.",
+  },
+};
 
 const reviews = [
   {
@@ -49,6 +59,10 @@ export default function ReviewsPage() {
       title="Отзывы"
       imageSrc="/images/about/reviews.png"
       imageAlt="Отзывы клиентов"
+      breadcrumbs={[
+        { label: "О нас", href: "/about" },
+        { label: "Отзывы" },
+      ]}
     >
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">

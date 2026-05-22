@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Жалюзи Хай-Тек",
+  description: "Современные заборы жалюзи Хай-Тек. Различные цвета двустороннего матового покрытия.",
+  openGraph: {
+    title: "Жалюзи Хай-Тек",
+    description: "Современные заборы жалюзи Хай-Тек. Различные цвета двустороннего матового покрытия.",
+  },
+};
 
 const specs = [
   "Рекомендуемое количество: 8 шт на 1 погонный метр высоты",
@@ -76,6 +86,10 @@ export default function HighTechPage() {
       title="Жалюзи Хай-Тек"
       imageSrc="/images/fences/high-tech.png"
       imageAlt="Жалюзи Хай-Тек"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Жалюзи Хай-Тек" },
+      ]}
     >
       <CatalogPage 
         specs={specs} 

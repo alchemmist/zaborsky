@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Металлопланкен-ранчо",
+  description: "Забор из металлопланкена в стиле ранчо. Цены от 160 руб/п.м. Различные покрытия и цвета.",
+  openGraph: {
+    title: "Металлопланкен-ранчо",
+    description: "Забор из металлопланкена в стиле ранчо. Цены от 160 руб/п.м. Различные покрытия и цвета.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -64,6 +74,10 @@ export default function MetalPlankenRanchoPage() {
       title="Металлопланкен-ранчо"
       imageSrc="/images/fences/metal-planken-rancho.png"
       imageAlt="Металлопланкен-ранчо"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Металлопланкен-ранчо" },
+      ]}
     >
       <CatalogPage 
         products={products} 

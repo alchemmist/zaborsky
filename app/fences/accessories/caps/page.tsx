@@ -1,6 +1,16 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
 import { ExamplesGallery } from "@/components/examples-gallery";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Колпаки на столбы ZKING",
+  description: "Колпаки на столбы ZKING: Модена, Эверест, Бокс, Эльбрус. Различные формы и размеры.",
+  openGraph: {
+    title: "Колпаки на столбы ZKING",
+    description: "Колпаки на столбы ZKING: Модена, Эверест, Бокс, Эльбрус. Различные формы и размеры.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -318,6 +328,11 @@ export default function CapsPage() {
       title="Колпаки на столбы ZKING"
       imageSrc="/images/fences/caps.png"
       imageAlt="Колпаки ZKING"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Комплектующие", href: "/fences/accessories" },
+        { label: "Колпаки" },
+      ]}
     >
       <ExamplesGallery examples={examples} />
       <CatalogPage 

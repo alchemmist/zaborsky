@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Еврожалюзи",
+  description: "Заборы еврожалюзи от ZABORSKY. Цены от 188 руб/п.м. Различные цвета и покрытия.",
+  openGraph: {
+    title: "Еврожалюзи",
+    description: "Заборы еврожалюзи от ZABORSKY. Цены от 188 руб/п.м. Различные цвета и покрытия.",
+  },
+};
 
 const specs = [
   "Рекомендуемое количество: 9-10 шт на 1 погонный метр высоты",
@@ -71,6 +81,10 @@ export default function EuroJalusiPage() {
       title="Еврожалюзи"
       imageSrc="/images/fences/euro-jalusi.png"
       imageAlt="Еврожалюзи"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Еврожалюзи" },
+      ]}
     >
       <CatalogPage 
         specs={specs} 

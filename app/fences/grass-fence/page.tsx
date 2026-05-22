@@ -1,6 +1,16 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
 import { ExamplesGallery } from "@/components/examples-gallery";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Травяной забор (Grass Fence)",
+  description: "Травяной забор Grass Fence. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
+  openGraph: {
+    title: "Травяной забор (Grass Fence)",
+    description: "Травяной забор Grass Fence. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -48,6 +58,10 @@ export default function GrassFencePage() {
       title="Травяной забор (Grass Fence)"
       imageSrc="/images/fences/grass-fence.png"
       imageAlt="Травяной забор Grass Fence"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Травяной забор (Grass Fence)" },
+      ]}
     >
       <ExamplesGallery examples={examples} />
       <CatalogPage 

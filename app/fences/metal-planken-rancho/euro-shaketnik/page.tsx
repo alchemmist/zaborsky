@@ -1,5 +1,15 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Евроштакетник",
+  description: "Евроштакетник от ZABORSKY. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
+  openGraph: {
+    title: "Евроштакетник",
+    description: "Евроштакетник от ZABORSKY. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -64,6 +74,11 @@ export default function EuroShaketnikPage() {
       title="Евроштакетник"
       imageSrc="/images/fences/euro-shaketnik.png"
       imageAlt="Евроштакетник"
+      breadcrumbs={[
+        { label: "Заборы", href: "/fences" },
+        { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho" },
+        { label: "Евроштакетник" },
+      ]}
     >
       <CatalogPage 
         products={products} 

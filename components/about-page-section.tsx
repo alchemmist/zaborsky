@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 import { TelegramLink, MaxLink } from "@/components/social-icons";
 
@@ -73,12 +74,14 @@ export function AboutPageSection({
         {images && images.length > 0 && (
           <div className="mt-16 grid gap-8 sm:grid-cols-2">
             {images.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-lg">
-                <img
-                   src={sitePath(image.src)}
-                   alt={image.alt}
-                   className="h-64 w-full object-cover"
-                 />
+              <div key={index} className="relative h-64 overflow-hidden rounded-lg shadow-lg">
+                <Image
+                  src={sitePath(image.src)}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>

@@ -1,12 +1,14 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { sitePath } from "@/components/site-path";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 
 type DevelopmentPageProps = {
   title: ReactNode;
   imageSrc: string;
   imageAlt: string;
   children?: ReactNode;
+  breadcrumbs?: BreadcrumbItem[];
 };
 
 export function DevelopmentPage({
@@ -14,9 +16,11 @@ export function DevelopmentPage({
   imageSrc,
   imageAlt,
   children,
+  breadcrumbs,
 }: DevelopmentPageProps) {
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
       <section className="relative isolate flex h-[50svh] min-h-[420px] items-center overflow-hidden bg-slate-900">
         <Image
           src={sitePath(imageSrc)}

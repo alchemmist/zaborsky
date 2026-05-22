@@ -1,6 +1,16 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { CatalogPage, type CatalogProduct } from "@/components/catalog-page";
 import { ExamplesGallery } from "@/components/examples-gallery";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Шаговые плиты",
+  description: "Шаговые плиты из полимерпесчаного композита. Коллекция STONE: Чёрный Сланец, Светлая Галька, Графитовый Серый.",
+  openGraph: {
+    title: "Шаговые плиты",
+    description: "Шаговые плиты из полимерпесчаного композита. Коллекция STONE: Чёрный Сланец, Светлая Галька, Графитовый Серый.",
+  },
+};
 
 const products: CatalogProduct[] = [
   {
@@ -47,8 +57,12 @@ export default function StepPaversPage() {
   return (
     <DevelopmentPage
       title="Шаговые плиты"
-      imageSrc="/images/landscaping/step-pvaers.png"
+      imageSrc="/images/landscaping/step-pavers.png"
       imageAlt="Шаговые плиты"
+      breadcrumbs={[
+        { label: "Благоустройство", href: "/landscaping" },
+        { label: "Шаговые плиты" },
+      ]}
     >
       <ExamplesGallery examples={examples} size="large" />
       <CatalogPage 
