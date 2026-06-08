@@ -71,18 +71,35 @@ export function LocalBusinessJsonLd() {
   );
 }
 
+type AggregateRating = {
+  ratingValue: number;
+  reviewCount: number;
+  bestRating?: number;
+  worstRating?: number;
+};
+
+type ReviewData = {
+  reviewBody: string;
+  author: string;
+  datePublished?: string;
+};
+
 export function ProductJsonLd({
   name,
   description,
   price,
   priceCurrency = "RUB",
   image,
+  aggregateRating,
+  review,
 }: {
   name: string;
   description: string;
   price?: string;
   priceCurrency?: string;
   image?: string;
+  aggregateRating?: AggregateRating;
+  review?: ReviewData;
 }) {
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -97,6 +114,27 @@ export function ProductJsonLd({
             price,
             priceCurrency,
             availability: "https://schema.org/InStock",
+          },
+        }
+      : {}),
+    ...(aggregateRating
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: aggregateRating.ratingValue,
+            reviewCount: aggregateRating.reviewCount,
+            bestRating: aggregateRating.bestRating ?? 5,
+            worstRating: aggregateRating.worstRating ?? 1,
+          },
+        }
+      : {}),
+    ...(review
+      ? {
+          review: {
+            "@type": "Review",
+            reviewBody: review.reviewBody,
+            author: { "@type": "Person", name: review.author },
+            ...(review.datePublished ? { datePublished: review.datePublished } : {}),
           },
         }
       : {}),

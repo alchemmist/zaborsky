@@ -118,6 +118,11 @@ export function DetailedCatalogPage({
           name={firstProduct.title}
           description={`${firstProduct.title}, ${Object.values(firstProduct).filter(v => typeof v === "string" && v.length < 100).join(", ")}`}
           image={imageSrc}
+          aggregateRating={{ ratingValue: 5, reviewCount: 3, bestRating: 5 }}
+          review={{
+            reviewBody: "Заказали себе в частный сектор забор из штакетника цвета графит в компании ЗАБОРСКИЙ.РФ, с доставкой и установкой. Пришел в целости и в сохранности и по времени быстро. Смонтировали оперативно и аккуратно. Спасибо огромное ! Рекомендую компанию!",
+            author: "Евгений и Анастасия Кудряковы, Тверская область",
+          }}
         />
       ) : null}
       <section className="bg-white py-16 sm:py-20">
