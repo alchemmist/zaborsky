@@ -84,6 +84,29 @@ type ReviewData = {
   datePublished?: string;
 };
 
+const defaultShippingDetails = {
+  "@type": "OfferShippingDetails",
+  shippingDestination: {
+    "@type": "DefinedRegion",
+    addressCountry: "RU",
+  },
+  deliveryTime: {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: {
+      "@type": "QuantitativeValue",
+      minValue: 3,
+      maxValue: 10,
+      unitCode: "DAY",
+    },
+  },
+};
+
+const defaultReturnPolicy = {
+  "@type": "MerchantReturnPolicy",
+  applicableCountry: "RU",
+  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+};
+
 export function ProductJsonLd({
   name,
   description,
@@ -92,6 +115,8 @@ export function ProductJsonLd({
   image,
   aggregateRating,
   review,
+  shippingDetails,
+  returnPolicy,
 }: {
   name: string;
   description: string;
@@ -100,12 +125,15 @@ export function ProductJsonLd({
   image?: string;
   aggregateRating?: AggregateRating;
   review?: ReviewData;
+  shippingDetails?: Record<string, unknown> | false;
+  returnPolicy?: Record<string, unknown> | false;
 }) {
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
     description,
+    brand: { "@type": "Brand", name: "Заборский" },
     ...(image ? { image: `${siteUrl}${image}` } : {}),
     ...(price
       ? {
@@ -114,6 +142,12 @@ export function ProductJsonLd({
             price,
             priceCurrency,
             availability: "https://schema.org/InStock",
+            ...(shippingDetails !== false
+              ? { shippingDetails: shippingDetails ?? defaultShippingDetails }
+              : {}),
+            ...(returnPolicy !== false
+              ? { hasMerchantReturnPolicy: returnPolicy ?? defaultReturnPolicy }
+              : {}),
           },
         }
       : {}),
