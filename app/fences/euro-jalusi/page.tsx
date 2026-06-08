@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Еврожалюзи",
   description: "Заборы еврожалюзи от Заборский. Цены от 188 руб/п.м. Различные цвета и покрытия.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/euro-jalusi/",
+    canonical: "https://заборский.рф/fences/euro-jalusi/",
   },
   openGraph: {
     title: "Еврожалюзи",

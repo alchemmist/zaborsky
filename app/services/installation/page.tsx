@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Установка заборов под ключ — цена монтажа",
   description: "Профессиональная установка заборов под ключ от Заборский. Бесплатный замер, гарантия на монтаж. Цена установки от 500 руб/п.м. Работаем с любыми типами заборов.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/services/installation/",
+    canonical: "https://заборский.рф/services/installation/",
   },
   openGraph: {
     title: "Установка заборов под ключ — цена монтажа",

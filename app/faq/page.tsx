@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Часто задаваемые вопросы о заборах",
   description: "Ответы на популярные вопросы: какой забор выбрать, сколько стоит установка, сроки, гарантия, фундамент, уход за забором.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/faq/",
+    canonical: "https://заборский.рф/faq/",
   },
   openGraph: {
     title: "Часто задаваемые вопросы о заборах",

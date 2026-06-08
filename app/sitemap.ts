@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://xn--80adjbqf5a.xn--p1ai";
+const siteUrl = "https://заборский.рф";
 
 const routes = [
   { url: siteUrl, priority: 1, changeFrequency: "monthly" as const },

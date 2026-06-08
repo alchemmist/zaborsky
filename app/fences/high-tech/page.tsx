@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Жалюзи Хай-Тек",
   description: "Современные заборы жалюзи Хай-Тек. Различные цвета двустороннего матового покрытия.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/high-tech/",
+    canonical: "https://заборский.рф/fences/high-tech/",
   },
   openGraph: {
     title: "Жалюзи Хай-Тек",

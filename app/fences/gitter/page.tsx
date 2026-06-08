@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "3D сетка Гиттер",
   description: "3D сетка Гиттер от Заборский. Различные диаметры прутка, размеры ячейки и цвета.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/gitter/",
+    canonical: "https://заборский.рф/fences/gitter/",
   },
   openGraph: {
     title: "3D сетка Гиттер",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Парапеты ZKING",
   description: "Парапеты ZKING для заборов: Монблан, Эверест, Бона, Эльбрус. Различные размеры.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/accessories/parapets/",
+    canonical: "https://заборский.рф/fences/accessories/parapets/",
   },
   openGraph: {
     title: "Парапеты ZKING",

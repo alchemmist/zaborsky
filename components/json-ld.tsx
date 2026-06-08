@@ -1,4 +1,4 @@
-const siteUrl = "https://xn--80adjbqf5a.xn--p1ai";
+const siteUrl = "https://заборский.рф";
 
 export function OrganizationJsonLd() {
   const jsonLd = {

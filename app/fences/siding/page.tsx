@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Сайдинг",
   description: "Металлический сайдинг для забора от Заборский. Премиальные покрытия Printech и SteelArt.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/siding/",
+    canonical: "https://заборский.рф/fences/siding/",
   },
   openGraph: {
     title: "Сайдинг",

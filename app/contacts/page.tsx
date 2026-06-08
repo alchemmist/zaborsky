@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Контакты",
   description: "Свяжитесь с Заборский: телефон 8-965-938-33-73, email prometiz@inbox.ru, Telegram, MAX.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/contacts/",
+    canonical: "https://заборский.рф/contacts/",
   },
   openGraph: {
     title: "Контакты",

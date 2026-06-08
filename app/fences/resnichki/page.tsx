@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Жалюзи Реснички",
   description: "Забор жалюзи Реснички от Заборский. Белый, тёмный шоколад, серый графит.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/resnichki/",
+    canonical: "https://заборский.рф/fences/resnichki/",
   },
   openGraph: {
     title: "Жалюзи Реснички",

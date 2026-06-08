@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Отзывы",
   description: "Отзывы наших клиентов о работе Заборский. Реальные проекты и результаты.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/about/reviews/",
+    canonical: "https://заборский.рф/about/reviews/",
   },
   openGraph: {
     title: "Отзывы",

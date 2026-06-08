@@ -22,6 +22,8 @@ COPY --from=builder /app/package.json /app/package-lock.json ./
 
 RUN npm ci --prod
 
+RUN mkdir -p .next/cache/images && chown -R nextjs:nodejs .next
+
 USER nextjs
 
 EXPOSE 3000

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Металлопланкен-ранчо",
   description: "Забор из металлопланкена в стиле ранчо. Цены от 160 руб/п.м. Различные покрытия и цвета.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/metal-planken-rancho/",
+    canonical: "https://заборский.рф/fences/metal-planken-rancho/",
   },
   openGraph: {
     title: "Металлопланкен-ранчо",

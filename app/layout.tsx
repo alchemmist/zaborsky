@@ -23,7 +23,7 @@ const openSans = Open_Sans({
 
 const faviconPath = sitePath("/logo.svg");
 
-const siteUrl = "https://xn--80adjbqf5a.xn--p1ai";
+const siteUrl = "https://заборский.рф";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

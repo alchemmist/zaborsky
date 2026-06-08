@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Цены на заборы — стоимость от производителя",
   description: "Цены на все типы заборов от Заборский: жалюзи от 127 руб/п.м, евроштакетник от 127 руб/п.м, металлопланкен от 160 руб/п.м. Доставка по России.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/prices/",
+    canonical: "https://заборский.рф/prices/",
   },
   openGraph: {
     title: "Цены на заборы — стоимость от производителя",

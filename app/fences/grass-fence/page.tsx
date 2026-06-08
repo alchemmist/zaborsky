@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Травяной забор (Grass Fence)",
   description: "Травяной забор Grass Fence. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/grass-fence/",
+    canonical: "https://заборский.рф/fences/grass-fence/",
   },
   openGraph: {
     title: "Травяной забор (Grass Fence)",

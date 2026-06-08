@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Колпаки на столбы ZKING",
   description: "Колпаки на столбы для заборов ZKING: классические, под фонарь, с шаром, с подсветкой, с пикой, премиум, БОНАНО.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/accessories/caps/",
+    canonical: "https://заборский.рф/fences/accessories/caps/",
   },
   openGraph: {
     title: "Колпаки на столбы ZKING",

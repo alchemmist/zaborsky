@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Комплектующие для заборов",
   description: "Комплектующие для заборов: колпаки на столбы и парапеты ZKING.",
   alternates: {
-    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/accessories/",
+    canonical: "https://заборский.рф/fences/accessories/",
   },
   openGraph: {
     title: "Комплектующие для заборов",
