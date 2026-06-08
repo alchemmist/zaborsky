@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Отзывы",
   description: "Отзывы наших клиентов о работе Заборский. Реальные проекты и результаты.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/about/reviews/",
+  },
   openGraph: {
     title: "Отзывы",
     description: "Отзывы наших клиентов о работе Заборский. Реальные проекты и результаты.",

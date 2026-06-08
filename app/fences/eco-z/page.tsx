@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Жалюзи ЭКО-Z и ЭКО-Z US",
   description: "Жалюзи ЭКО-Z и усиленные ЭКО-Z US. Цены от 181 руб/п.м. Серый графит, шоколад, белый, принтек.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/eco-z/",
+  },
   openGraph: {
     title: "Жалюзи ЭКО-Z и ЭКО-Z US",
     description: "Жалюзи ЭКО-Z и усиленные ЭКО-Z US. Цены от 181 руб/п.м. Серый графит, шоколад, белый, принтек.",

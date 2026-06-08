@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "О компании",
   description: "Заборский — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/about/",
+  },
   openGraph: {
     title: "О компании",
     description: "Заборский — успешный бренд с опытом монтажа красивых и стильных заборов по всей России.",

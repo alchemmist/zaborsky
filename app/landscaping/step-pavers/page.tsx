@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Шаговые плиты",
   description: "Шаговые плиты из полимерпесчаного композита. Коллекция STONE: Чёрный Сланец, Светлая Галька, Графитовый Серый.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/landscaping/step-pavers/",
+  },
   openGraph: {
     title: "Шаговые плиты",
     description: "Шаговые плиты из полимерпесчаного композита. Коллекция STONE: Чёрный Сланец, Светлая Галька, Графитовый Серый.",

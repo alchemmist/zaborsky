@@ -5,10 +5,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Колпаки на столбы ZKING",
-  description: "Колпаки на столбы ZKING: Модена, Эверест, Бокс, Эльбрус. Различные формы и размеры.",
+  description: "Колпаки на столбы для заборов ZKING: классические, под фонарь, с шаром, с подсветкой, с пикой, премиум, БОНАНО.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/accessories/caps/",
+  },
   openGraph: {
     title: "Колпаки на столбы ZKING",
-    description: "Колпаки на столбы ZKING: Модена, Эверест, Бокс, Эльбрус. Различные формы и размеры.",
+    description: "Колпаки на столбы для заборов ZKING: классические, под фонарь, с шаром, с подсветкой, с пикой, премиум, БОНАНО.",
   },
 };
 

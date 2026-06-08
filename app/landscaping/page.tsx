@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Благоустройство участка",
   description: "Благоустройство участка от Заборский: шаговые плиты, дорожки и элементы ландшафтного дизайна.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/landscaping/",
+  },
   openGraph: {
     title: "Благоустройство участка",
     description: "Благоустройство участка от Заборский: шаговые плиты, дорожки и элементы ландшафтного дизайна.",

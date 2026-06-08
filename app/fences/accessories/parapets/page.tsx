@@ -4,10 +4,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Парапеты ZKING",
-  description: "Парапеты ZKING: Монблан, Эверест, Бона, Эльбрус. Различные размеры под любые столбы.",
+  description: "Парапеты ZKING для заборов: Монблан, Эверест, Бона, Эльбрус. Различные размеры.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/accessories/parapets/",
+  },
   openGraph: {
     title: "Парапеты ZKING",
-    description: "Парапеты ZKING: Монблан, Эверест, Бона, Эльбрус. Различные размеры под любые столбы.",
+    description: "Парапеты ZKING для заборов: Монблан, Эверест, Бона, Эльбрус. Различные размеры.",
   },
 };
 

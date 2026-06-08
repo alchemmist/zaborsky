@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Каталог заборов",
   description: "Каталог заборов от Заборский: жалюзи, металлопланкен, евроштакетник, сайдинг, 3D сетка и другие.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/",
+  },
   openGraph: {
     title: "Каталог заборов",
     description: "Каталог заборов от Заборский: жалюзи, металлопланкен, евроштакетник, сайдинг, 3D сетка и другие.",

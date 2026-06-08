@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Евроштакетник",
   description: "Евроштакетник от Заборский. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
+  alternates: {
+    canonical: "https://xn--80adjbqf5a.xn--p1ai/fences/metal-planken-rancho/euro-shaketnik/",
+  },
   openGraph: {
     title: "Евроштакетник",
     description: "Евроштакетник от Заборский. Фигурный 110мм и ЭКО-М 95мм. Различные цвета и покрытия.",
