@@ -1,7 +1,3 @@
-заборский.рф {
+заборский.рф, www.заборский.рф {
     reverse_proxy app:3000
-}
-
-www.заборский.рф {
-    redir https://заборский.рф{uri} permanent
 }
