@@ -75,8 +75,8 @@ export default function EuroShaketnikPage() {
       imageSrc="/images/fences/euro-shaketnik.png"
       imageAlt="Евроштакетник"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
-        { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho" },
+        { label: "Заборы", href: "/fences/" },
+        { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho/" },
         { label: "Евроштакетник" },
       ]}
       breadcrumbsPath="/fences/metal-planken-rancho/euro-shaketnik"

@@ -59,7 +59,7 @@ export default function GrassFencePage() {
       imageSrc="/images/fences/grass-fence.png"
       imageAlt="Травяной забор Grass Fence"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Травяной забор (Grass Fence)" },
       ]}
       breadcrumbsPath="/fences/grass-fence"

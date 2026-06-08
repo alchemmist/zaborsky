@@ -10,31 +10,31 @@ type MenuNode = {
 };
 
 const fenceItems: MenuNode[] = [
-  { label: "Еврожалюзи", href: "/fences/euro-jalusi" },
-  { label: "Жалюзи ЭКО-Z и ЭКО-Z US", href: "/fences/eco-z" },
-  { label: "Жалюзи Реснички", href: "/fences/resnichki" },
-  { label: "Жалюзи Хай-Тек", href: "/fences/high-tech" },
-  { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho" },
-  { label: "Евроштакетник", href: "/fences/metal-planken-rancho/euro-shaketnik" },
-  { label: "Сайдинг", href: "/fences/siding" },
-  { label: "3D сетка Гиттер", href: "/fences/gitter" },
-  { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence" },
+  { label: "Еврожалюзи", href: "/fences/euro-jalusi/" },
+  { label: "Жалюзи ЭКО-Z и ЭКО-Z US", href: "/fences/eco-z/" },
+  { label: "Жалюзи Реснички", href: "/fences/resnichki/" },
+  { label: "Жалюзи Хай-Тек", href: "/fences/high-tech/" },
+  { label: "Металлопланкен-ранчо", href: "/fences/metal-planken-rancho/" },
+  { label: "Евроштакетник", href: "/fences/metal-planken-rancho/euro-shaketnik/" },
+  { label: "Сайдинг", href: "/fences/siding/" },
+  { label: "3D сетка Гиттер", href: "/fences/gitter/" },
+  { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence/" },
   {
     label: "Комплектующие для заборов",
     href: "",
     children: [
-      { label: "Колпаки ZKING", href: "/fences/accessories/caps" },
-      { label: "Парапеты ZKING", href: "/fences/accessories/parapets" },
+      { label: "Колпаки ZKING", href: "/fences/accessories/caps/" },
+      { label: "Парапеты ZKING", href: "/fences/accessories/parapets/" },
     ],
   },
 ];
 
 const aboutItems: MenuNode[] = [
-  { label: "История", href: "/about" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Отзывы", href: "/about/reviews" },
+  { label: "История", href: "/about/" },
+  { label: "FAQ", href: "/faq/" },
+  { label: "Отзывы", href: "/about/reviews/" },
 ];
-const landscapingItems: MenuNode[] = [{ label: "Шаговые плиты", href: "/landscaping/step-pavers" }];
+const landscapingItems: MenuNode[] = [{ label: "Шаговые плиты", href: "/landscaping/step-pavers/" }];
 
 type DropdownProps = {
   item: MenuNode;
@@ -238,7 +238,7 @@ export function SiteHeader() {
           />
 
           <SimpleDropdown
-            item={{ label: "Благоустройство", href: "/landscaping", children: landscapingItems } as MenuNode}
+            item={{ label: "Благоустройство", href: "/landscaping/", children: landscapingItems } as MenuNode}
             open={openMenu === "landscaping"}
             onOpen={() => setOpenMenu("landscaping")}
             onClose={closeMenus}
@@ -247,7 +247,7 @@ export function SiteHeader() {
           />
 
           <SimpleDropdown
-            item={{ label: "О нас", href: "/about", children: aboutItems }}
+            item={{ label: "О нас", href: "/about/", children: aboutItems }}
             open={openMenu === "about"}
             onOpen={() => setOpenMenu("about")}
             onClose={closeMenus}
@@ -256,7 +256,7 @@ export function SiteHeader() {
           />
 
           <MenuLink
-            href="/contacts"
+            href="/contacts/"
             onNavigate={closeAll}
             label="Контакты"
             className="select-none text-sm font-normal uppercase tracking-[0.18em] text-white/80 transition hover:text-white"
@@ -436,7 +436,7 @@ export function SiteHeader() {
             </div>
 
             <MenuLink
-              href="/contacts"
+              href="/contacts/"
               label="Контакты"
               onNavigate={closeAll}
               className="rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.18em] text-white/90 transition hover:bg-white/10"

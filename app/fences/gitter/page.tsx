@@ -175,7 +175,7 @@ export default function GitterPage() {
       imageSrc="/images/fences/3d-setcka.png"
       imageAlt="3D сетка Гиттер"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "3D сетка Гиттер" },
       ]}
       breadcrumbsPath="/fences/gitter"

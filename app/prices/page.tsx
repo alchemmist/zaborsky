@@ -12,19 +12,19 @@ export const metadata: Metadata = {
 };
 
 const priceItems = [
-  { name: "Еврожалюзи", price: "от 132 руб/п.м", href: "/fences/euro-jalusi", colors: "RAL8017, RAL8019, RAL7024, принтек" },
-  { name: "Жалюзи ЭКО-Z", price: "от 127 руб/п.м", href: "/fences/eco-z", colors: "RAL7024, RAL8019, RAL9003, принтек" },
-  { name: "Жалюзи ЭКО-Z US (усиленные)", price: "от 188 руб/п.м", href: "/fences/eco-z", colors: "RAL7024, RAL8019, RAL9003, принтек" },
-  { name: "Жалюзи Реснички", price: "от 188 руб/п.м", href: "/fences/resnichki", colors: "RAL9003, RAL8019, RAL7024" },
-  { name: "Жалюзи Хай-Тек", price: "от 132 руб/п.м", href: "/fences/high-tech", colors: "RAL8017, RAL8019, RAL7024, RAL9003" },
-  { name: "Металлопланкен-ранчо", price: "от 160 руб/п.м", href: "/fences/metal-planken-rancho", colors: "RAL8017, RAL8019, RAL7024, принтек" },
-  { name: "Евроштакетник", price: "от 127 руб/п.м", href: "/fences/metal-planken-rancho/euro-shaketnik", colors: "RAL8019, RAL9005, RAL8017, RAL9003, принтек" },
-  { name: "Сайдинг", price: "от 160 руб/п.м", href: "/fences/siding", colors: "RAL8017, RAL8019, RAL7024, RAL9003, принтек" },
-  { name: "3D сетка Гиттер", price: "от 3 500 руб/секция", href: "/fences/gitter", colors: "RAL6005, RAL7024, RAL9005, оцинкованная" },
-  { name: "Травяной забор Grass Fence", price: "от 17 000 руб", href: "/fences/grass-fence", colors: "Зелёный" },
-  { name: "Колпаки на столбы ZKING", price: "от 800 руб", href: "/fences/accessories/caps", colors: "Модена, Эверест, Бокс, Эльбрус" },
-  { name: "Парапеты ZKING", price: "от 800 руб", href: "/fences/accessories/parapets", colors: "Монблан, Эверест, Бона, Эльбрус" },
-  { name: "Шаговые плиты", price: "1 400 руб", href: "/landscaping/step-pavers", colors: "Чёрный Сланец, Светлая Галька, Графитовый Серый" },
+  { name: "Еврожалюзи", price: "от 132 руб/п.м", href: "/fences/euro-jalusi/", colors: "RAL8017, RAL8019, RAL7024, принтек" },
+  { name: "Жалюзи ЭКО-Z", price: "от 127 руб/п.м", href: "/fences/eco-z/", colors: "RAL7024, RAL8019, RAL9003, принтек" },
+  { name: "Жалюзи ЭКО-Z US (усиленные)", price: "от 188 руб/п.м", href: "/fences/eco-z/", colors: "RAL7024, RAL8019, RAL9003, принтек" },
+  { name: "Жалюзи Реснички", price: "от 188 руб/п.м", href: "/fences/resnichki/", colors: "RAL9003, RAL8019, RAL7024" },
+  { name: "Жалюзи Хай-Тек", price: "от 132 руб/п.м", href: "/fences/high-tech/", colors: "RAL8017, RAL8019, RAL7024, RAL9003" },
+  { name: "Металлопланкен-ранчо", price: "от 160 руб/п.м", href: "/fences/metal-planken-rancho/", colors: "RAL8017, RAL8019, RAL7024, принтек" },
+  { name: "Евроштакетник", price: "от 127 руб/п.м", href: "/fences/metal-planken-rancho/euro-shaketnik/", colors: "RAL8019, RAL9005, RAL8017, RAL9003, принтек" },
+  { name: "Сайдинг", price: "от 160 руб/п.м", href: "/fences/siding/", colors: "RAL8017, RAL8019, RAL7024, RAL9003, принтек" },
+  { name: "3D сетка Гиттер", price: "от 3 500 руб/секция", href: "/fences/gitter/", colors: "RAL6005, RAL7024, RAL9005, оцинкованная" },
+  { name: "Травяной забор Grass Fence", price: "от 17 000 руб", href: "/fences/grass-fence/", colors: "Зелёный" },
+  { name: "Колпаки на столбы ZKING", price: "от 800 руб", href: "/fences/accessories/caps/", colors: "Модена, Эверест, Бокс, Эльбрус" },
+  { name: "Парапеты ZKING", price: "от 800 руб", href: "/fences/accessories/parapets/", colors: "Монблан, Эверест, Бона, Эльбрус" },
+  { name: "Шаговые плиты", price: "1 400 руб", href: "/landscaping/step-pavers/", colors: "Чёрный Сланец, Светлая Галька, Графитовый Серый" },
 ];
 
 export default function PricesPage() {
@@ -98,7 +98,7 @@ export default function PricesPage() {
                 Позвонить
               </a>
               <Link
-                href="/contacts"
+                href="/contacts/"
                 className="inline-flex items-center rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold uppercase tracking-[0.14em] text-white transition hover:border-white/70"
               >
                 Написать нам

@@ -60,7 +60,7 @@ export default function StepPaversPage() {
       imageSrc="/images/landscaping/step-pavers.png"
       imageAlt="Шаговые плиты"
       breadcrumbs={[
-        { label: "Благоустройство", href: "/landscaping" },
+        { label: "Благоустройство", href: "/landscaping/" },
         { label: "Шаговые плиты" },
       ]}
       breadcrumbsPath="/landscaping/step-pavers"

@@ -149,7 +149,7 @@ export default function EcoZPage() {
       imageSrc="/images/fences/euro-jalusi-eco-z.png"
       imageAlt="Жалюзи ЭКО-Z и ЭКО-Z US"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Жалюзи ЭКО-Z и ЭКО-Z US" },
       ]}
       breadcrumbsPath="/fences/eco-z"

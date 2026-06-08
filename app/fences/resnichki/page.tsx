@@ -60,7 +60,7 @@ export default function ResnichkiPage() {
       imageSrc="/images/fences/resnichki.png"
       imageAlt="Жалюзи Реснички"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Жалюзи Реснички" },
       ]}
       breadcrumbsPath="/fences/resnichki"

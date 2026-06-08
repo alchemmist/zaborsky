@@ -329,8 +329,8 @@ export default function CapsPage() {
       imageSrc="/images/fences/caps.png"
       imageAlt="Колпаки ZKING"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
-        { label: "Комплектующие", href: "/fences/accessories" },
+        { label: "Заборы", href: "/fences/" },
+        { label: "Комплектующие", href: "/fences/accessories/" },
         { label: "Колпаки" },
       ]}
       breadcrumbsPath="/fences/accessories/caps"

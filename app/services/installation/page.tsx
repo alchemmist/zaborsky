@@ -85,7 +85,7 @@ export default function InstallationPage() {
                 Позвонить
               </a>
               <Link
-                href="/contacts"
+                href="/contacts/"
                 className="inline-flex items-center rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold uppercase tracking-[0.14em] text-white transition hover:border-white/70"
               >
                 Написать нам

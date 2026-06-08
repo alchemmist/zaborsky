@@ -129,8 +129,8 @@ export default function ParapetsPage() {
       imageSrc="/images/fences/parapets.png"
       imageAlt="Парапеты ZKING"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
-        { label: "Комплектующие", href: "/fences/accessories" },
+        { label: "Заборы", href: "/fences/" },
+        { label: "Комплектующие", href: "/fences/accessories/" },
         { label: "Парапеты" },
       ]}
       breadcrumbsPath="/fences/accessories/parapets"

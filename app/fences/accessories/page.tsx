@@ -17,7 +17,7 @@ export default function AccessoriesPage() {
       imageSrc="/images/fences/accessories-root.png"
       imageAlt="Комплектующие для заборов"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Комплектующие" },
       ]}
       breadcrumbsPath="/fences/accessories"

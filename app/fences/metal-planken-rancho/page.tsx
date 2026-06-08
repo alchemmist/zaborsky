@@ -75,7 +75,7 @@ export default function MetalPlankenRanchoPage() {
       imageSrc="/images/fences/metal-planken-rancho.png"
       imageAlt="Металлопланкен-ранчо"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Металлопланкен-ранчо" },
       ]}
       breadcrumbsPath="/fences/metal-planken-rancho"

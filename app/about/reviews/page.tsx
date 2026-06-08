@@ -61,7 +61,7 @@ export default function ReviewsPage() {
       imageSrc="/images/about/reviews.png"
       imageAlt="Отзывы клиентов"
       breadcrumbs={[
-        { label: "О нас", href: "/about" },
+        { label: "О нас", href: "/about/" },
         { label: "Отзывы" },
       ]}
       breadcrumbsPath="/about/reviews"

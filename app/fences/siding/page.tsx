@@ -48,7 +48,7 @@ export default function SidingPage() {
       imageSrc="/images/fences/siding.png"
       imageAlt="Сайдинг"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Сайдинг" },
       ]}
       breadcrumbsPath="/fences/siding"

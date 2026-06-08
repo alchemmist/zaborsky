@@ -87,7 +87,7 @@ export default function HighTechPage() {
       imageSrc="/images/fences/high-tech.png"
       imageAlt="Жалюзи Хай-Тек"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Жалюзи Хай-Тек" },
       ]}
       breadcrumbsPath="/fences/high-tech"

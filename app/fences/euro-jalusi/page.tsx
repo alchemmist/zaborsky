@@ -98,7 +98,7 @@ export default function EuroJalusiPage() {
       imageSrc="/images/fences/euro-jalusi.png"
       imageAlt="Еврожалюзи"
       breadcrumbs={[
-        { label: "Заборы", href: "/fences" },
+        { label: "Заборы", href: "/fences/" },
         { label: "Еврожалюзи" },
       ]}
       breadcrumbsPath="/fences/euro-jalusi"
