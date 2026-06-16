@@ -1,3 +1,3 @@
-заборский.рф, www.заборский.рф {
+xn--80acqgfe1aqj.xn--p1ai, заборский.рф, www.заборский.рф {
     reverse_proxy app:3000
 }
