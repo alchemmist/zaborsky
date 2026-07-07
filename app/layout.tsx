@@ -43,14 +43,6 @@ export const metadata: Metadata = {
     title: "Заборский — заборы и благоустройство",
     description:
       "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
-    images: [
-      {
-        url: `${siteUrl}/logo.svg`,
-        width: 512,
-        height: 512,
-        alt: "Заборский",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",

@@ -28,10 +28,11 @@ export function DevelopmentPage({
           <BreadcrumbJsonLd
             items={[
               { name: "Главная", url: "/" },
-              ...breadcrumbs.map((b) => ({
-                name: b.label,
-                url: b.href ?? breadcrumbsPath ?? "/",
-              })),
+              ...breadcrumbs.map((b) => {
+                const rawUrl = b.href ?? breadcrumbsPath ?? "/";
+                const url = rawUrl.endsWith("/") ? rawUrl : `${rawUrl}/`;
+                return { name: b.label, url };
+              }),
             ]}
           />
           <Breadcrumbs items={breadcrumbs} />

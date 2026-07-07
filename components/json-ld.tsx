@@ -46,6 +46,7 @@ export function LocalBusinessJsonLd() {
       "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
     telephone: "+7-965-938-33-73",
     email: "prometiz@inbox.ru",
+    priceRange: "₽₽",
     sameAs: [
       "https://t.me/alex_zaborsky",
       "https://max.ru/u/f9LHodD0cOJiBu4STx8Aftcw4KZhEOB63VktzebdOwXrwVfS40jk-2SXHaw",
@@ -53,6 +54,24 @@ export function LocalBusinessJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressCountry: "RU",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Россия",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "20:00",
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -86,6 +105,11 @@ type ReviewData = {
 
 const defaultShippingDetails = {
   "@type": "OfferShippingDetails",
+  shippingRate: {
+    "@type": "MonetaryAmount",
+    value: "0",
+    currency: "RUB",
+  },
   shippingDestination: {
     "@type": "DefinedRegion",
     addressCountry: "RU",
@@ -96,6 +120,12 @@ const defaultShippingDetails = {
       "@type": "QuantitativeValue",
       minValue: 3,
       maxValue: 10,
+      unitCode: "DAY",
+    },
+    transitTime: {
+      "@type": "QuantitativeValue",
+      minValue: 1,
+      maxValue: 7,
       unitCode: "DAY",
     },
   },
