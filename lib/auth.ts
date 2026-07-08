@@ -25,7 +25,13 @@ export async function makeToken(): Promise<string> {
   return hmac("authorized", secret);
 }
 
-function timingSafeEqual(a: string, b: string): boolean {
+export async function hashPassword(plain: string): Promise<string> {
+  const secret = process.env.ADMIN_SECRET;
+  if (!secret) return "";
+  return hmac(`pw:${plain}`, secret);
+}
+
+export function timingSafeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let out = 0;
   for (let i = 0; i < a.length; i++) out |= a.charCodeAt(i) ^ b.charCodeAt(i);
@@ -39,20 +45,17 @@ export async function verifyToken(token: string | undefined): Promise<boolean> {
   return timingSafeEqual(token, expected);
 }
 
-export function checkBasicAuth(header: string | null): boolean {
-  const user = process.env.ADMIN_USER;
-  const password = process.env.ADMIN_PASSWORD;
-  if (!user || !password) return false;
-  if (!header || !header.startsWith("Basic ")) return false;
+export function parseBasicAuth(
+  header: string | null
+): { user: string; pass: string } | null {
+  if (!header || !header.startsWith("Basic ")) return null;
   let decoded = "";
   try {
     decoded = atob(header.slice(6).trim());
   } catch {
-    return false;
+    return null;
   }
   const sep = decoded.indexOf(":");
-  if (sep < 0) return false;
-  const gotUser = decoded.slice(0, sep);
-  const gotPass = decoded.slice(sep + 1);
-  return timingSafeEqual(gotUser, user) && timingSafeEqual(gotPass, password);
+  if (sep < 0) return null;
+  return { user: decoded.slice(0, sep), pass: decoded.slice(sep + 1) };
 }
