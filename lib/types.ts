@@ -6,6 +6,7 @@ export type CatalogProduct = {
   price: string;
   image: string;
   alt: string;
+  hidden?: boolean;
 };
 
 export type DetailedCatalogProduct = {
@@ -19,6 +20,7 @@ export type DetailedCatalogProduct = {
   colors: string[];
   additional?: string;
   price: string;
+  hidden?: boolean;
 };
 
 export type PriceRow = {

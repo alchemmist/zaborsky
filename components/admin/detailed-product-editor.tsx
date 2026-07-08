@@ -139,9 +139,37 @@ export function DetailedProductEditControls({
     else alert("Не удалось удалить");
   }
 
+  async function toggleHidden() {
+    const res = await fetch("/api/admin/product", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug, id: product.id, hidden: !product.hidden }),
+    });
+    if (res.ok) router.refresh();
+    else alert("Не удалось изменить видимость");
+  }
+
   return (
     <>
       <div className="absolute right-2 top-2 z-20 flex gap-1.5">
+        <button
+          type="button"
+          onClick={toggleHidden}
+          className="grid h-9 w-9 place-items-center rounded-full bg-white/95 text-slate-700 shadow-md ring-1 ring-black/10 transition hover:bg-white hover:text-[#5c7887]"
+          aria-label={product.hidden ? "Показать" : "Скрыть"}
+          title={product.hidden ? "Показать позицию" : "Скрыть позицию"}
+        >
+          {product.hidden ? (
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 3l18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.4 5.2A9.5 9.5 0 0 1 12 5c5 0 9 5 9 7a12 12 0 0 1-2.2 2.9M6.1 6.1C3.9 7.4 2 9.9 2 12c0 2 4 7 10 7a9.6 9.6 0 0 0 3.1-.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          ) : (
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          )}
+        </button>
         <button
           type="button"
           onClick={() => setOpen(true)}

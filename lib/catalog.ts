@@ -68,6 +68,22 @@ export async function upsertProduct(
   await writeJson(CATALOG_FILE, catalog);
 }
 
+export async function setProductHidden(
+  slug: string,
+  id: string,
+  hidden: boolean
+): Promise<void> {
+  const catalog = await getCatalog();
+  const section = catalog[slug];
+  if (!section) throw new Error(`Unknown section: ${slug}`);
+  const item = (section.products as { id: string; hidden?: boolean }[]).find(
+    (p) => p.id === id
+  );
+  if (!item) throw new Error(`Unknown product: ${id}`);
+  item.hidden = hidden;
+  await writeJson(CATALOG_FILE, catalog);
+}
+
 export async function deleteProduct(slug: string, id: string): Promise<void> {
   const catalog = await getCatalog();
   const section = catalog[slug];

@@ -110,7 +110,9 @@ export function DetailedCatalogPage({
   editable,
   slug,
 }: DetailedCatalogPageProps) {
-  const firstProduct = products[0];
+  const visibleProducts = products.filter((p) => !p.hidden);
+  const shownProducts = editable ? products : visibleProducts;
+  const firstProduct = visibleProducts[0] ?? products[0];
   return (
     <>
       {firstProduct ? (
@@ -141,8 +143,13 @@ export function DetailedCatalogPage({
           </p>
         ) : null}
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {products.map((product) => (
-            <div key={product.id} className="relative">
+          {shownProducts.map((product) => (
+            <div key={product.id} className={`relative${editable && product.hidden ? " opacity-50" : ""}`}>
+              {editable && product.hidden ? (
+                <span className="absolute left-2 top-2 z-20 rounded-full bg-slate-900/85 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+                  Скрыт
+                </span>
+              ) : null}
               {editable && slug ? <DetailedProductEditControls slug={slug} product={product} /> : null}
               <DetailedCatalogCard
                 product={product}
