@@ -1,25 +1,23 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 import { ProductJsonLd } from "@/components/json-ld";
+import type { DetailedCatalogProduct } from "@/lib/types";
+import {
+  DetailedProductEditControls,
+  AddDetailedProductButton,
+} from "@/components/admin/detailed-product-editor";
+import { SectionMetaEditor } from "@/components/admin/section-meta-editor";
+import { AdminBar } from "@/components/admin/admin-bar";
 
-export type DetailedCatalogProduct = {
-  id: string;
-  title: string;
-  diameter: string;
-  size: string;
-  coating: string;
-  cell: string;
-  rodDiameter: string;
-  colors: string[];
-  additional?: string;
-  price: string;
-};
+export type { DetailedCatalogProduct } from "@/lib/types";
 
 type DetailedCatalogPageProps = {
   imageSrc: string;
   imageAlt: string;
   products: DetailedCatalogProduct[];
   description?: string;
+  editable?: boolean;
+  slug?: string;
 };
 
 function DetailedCatalogCard({
@@ -109,6 +107,8 @@ export function DetailedCatalogPage({
   imageAlt,
   products,
   description,
+  editable,
+  slug,
 }: DetailedCatalogPageProps) {
   const firstProduct = products[0];
   return (
@@ -127,9 +127,14 @@ export function DetailedCatalogPage({
       ) : null}
       <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
-          Каталог
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+            Каталог
+          </h2>
+          {editable && slug ? (
+            <SectionMetaEditor slug={slug} description={description ?? ""} specs={[]} hasSpecs={false} />
+          ) : null}
+        </div>
         {description ? (
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl">
             {description}
@@ -137,16 +142,20 @@ export function DetailedCatalogPage({
         ) : null}
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
-            <DetailedCatalogCard
-              key={product.id}
-              product={product}
-              imageSrc={imageSrc}
-              imageAlt={imageAlt}
-            />
+            <div key={product.id} className="relative">
+              {editable && slug ? <DetailedProductEditControls slug={slug} product={product} /> : null}
+              <DetailedCatalogCard
+                product={product}
+                imageSrc={imageSrc}
+                imageAlt={imageAlt}
+              />
+            </div>
           ))}
+          {editable && slug ? <AddDetailedProductButton slug={slug} /> : null}
         </div>
       </div>
     </section>
+    {editable ? <AdminBar /> : null}
     </>
   );
 }

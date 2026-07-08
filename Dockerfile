@@ -22,7 +22,8 @@ COPY --from=builder /app/package.json /app/package-lock.json ./
 
 RUN npm ci --prod
 
-RUN mkdir -p .next/cache/images && chown -R nextjs:nodejs .next
+RUN mkdir -p .next/cache/images data public/uploads && \
+    chown -R nextjs:nodejs .next data public/uploads
 
 USER nextjs
 

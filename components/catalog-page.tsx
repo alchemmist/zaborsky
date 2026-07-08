@@ -1,24 +1,21 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 import { ProductJsonLd } from "@/components/json-ld";
+import type { CatalogProduct } from "@/lib/types";
+import { ProductEditControls, AddProductButton } from "@/components/admin/product-editor";
+import { SectionMetaEditor } from "@/components/admin/section-meta-editor";
+import { AdminBar } from "@/components/admin/admin-bar";
 
+export type { CatalogProduct } from "@/lib/types";
 export type CatalogSpec = string;
-
-export type CatalogProduct = {
-  id: string;
-  title: string;
-  color: string;
-  extra?: string;
-  price: string;
-  image: string;
-  alt: string;
-};
 
 type CatalogPageProps = {
   specs?: CatalogSpec[];
   products: CatalogProduct[];
   compactImages?: boolean;
   description?: string;
+  editable?: boolean;
+  slug?: string;
 };
 
 function CatalogProductCard({ product, compact }: { product: CatalogProduct; compact?: boolean }) {
@@ -57,7 +54,7 @@ function CatalogProductCard({ product, compact }: { product: CatalogProduct; com
   );
 }
 
-export function CatalogPage({ specs, products, compactImages, description }: CatalogPageProps) {
+export function CatalogPage({ specs, products, compactImages, description, editable, slug }: CatalogPageProps) {
   const firstProduct = products[0];
   return (
     <>
@@ -77,9 +74,19 @@ export function CatalogPage({ specs, products, compactImages, description }: Cat
       <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
-          <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
-            Каталог
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+              Каталог
+            </h2>
+            {editable && slug ? (
+              <SectionMetaEditor
+                slug={slug}
+                description={description ?? ""}
+                specs={specs ?? []}
+                hasSpecs={Boolean(specs?.length)}
+              />
+            ) : null}
+          </div>
           {description ? (
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl">
               {description}
@@ -102,11 +109,16 @@ export function CatalogPage({ specs, products, compactImages, description }: Cat
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
-            <CatalogProductCard key={product.id} product={product} compact={compactImages} />
+            <div key={product.id} className="relative">
+              {editable && slug ? <ProductEditControls slug={slug} product={product} /> : null}
+              <CatalogProductCard product={product} compact={compactImages} />
+            </div>
           ))}
+          {editable && slug ? <AddProductButton slug={slug} /> : null}
         </div>
       </div>
     </section>
+    {editable ? <AdminBar /> : null}
     </>
   );
 }

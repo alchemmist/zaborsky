@@ -4,6 +4,13 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    environment:
+      ADMIN_USER: ${ADMIN_USER:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
+    volumes:
+      - zbr_data:/app/data
+      - zbr_uploads:/app/public/uploads
     networks:
       - default
 
@@ -26,6 +33,8 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  zbr_data:
+  zbr_uploads:
 
 networks:
   default:
