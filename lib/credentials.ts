@@ -25,13 +25,15 @@ async function writeAuth(data: AuthFile): Promise<void> {
 
 export async function verifyPassword(plain: string): Promise<boolean> {
   const stored = (await readAuth()).passwordHash;
+  const envPass = process.env.ADMIN_PASSWORD;
+  if (envPass && timingSafeEqual(plain, envPass)) {
+    return true;
+  }
   if (stored) {
     const incoming = await hashPassword(plain);
     return Boolean(incoming) && timingSafeEqual(incoming, stored);
   }
-  const envPass = process.env.ADMIN_PASSWORD;
-  if (!envPass) return false;
-  return timingSafeEqual(plain, envPass);
+  return false;
 }
 
 export async function verifyCredentials(
