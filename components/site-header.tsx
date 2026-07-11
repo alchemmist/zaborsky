@@ -80,7 +80,7 @@ function TreeChildLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-normal uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/10 hover:text-white"
+      className="flex items-center gap-2.5 rounded-lg px-3 py-1.5 text-[12px] font-normal uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/10 hover:text-white"
     >
       <span className="h-1.5 w-1.5 rounded-full bg-white/55" />
       <span>{label}</span>
@@ -140,33 +140,33 @@ function FenceTreeItem({
   onNavigate: () => void;
 }) {
   const hasChildren = item.children && item.children.length > 0;
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-      {hasChildren ? (
-        <span className="select-none block rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.14em] text-white/70">
-          {item.label}
-        </span>
-      ) : (
-        <MenuLink
-          href={item.href}
-          label={item.label}
-          onNavigate={onNavigate}
-          className="block rounded-xl px-4 py-3 text-sm font-normal uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10 hover:text-white"
-        />
-      )}
 
-      {item.children?.length ? (
-        <div className="mt-2 border-white/20 pl-4">
-          {item.children.map((child) => (
-            <TreeChildLink
-              key={child.label}
-              href={child.href}
-              label={child.label}
-              onNavigate={onNavigate}
-            />
-          ))}
-        </div>
-      ) : null}
+  if (!hasChildren) {
+    return (
+      <MenuLink
+        href={item.href}
+        label={item.label}
+        onNavigate={onNavigate}
+        className="block rounded-lg px-3 py-2 text-sm font-normal uppercase tracking-[0.14em] text-white/90 transition hover:bg-white/10 hover:text-white"
+      />
+    );
+  }
+
+  return (
+    <div className="mt-1 rounded-lg bg-white/5 px-2 py-1.5">
+      <span className="select-none block px-1 py-1 text-sm font-normal uppercase tracking-[0.14em] text-white/60">
+        {item.label}
+      </span>
+      <div className="mt-0.5">
+        {item.children?.map((child) => (
+          <TreeChildLink
+            key={child.label}
+            href={child.href}
+            label={child.label}
+            onNavigate={onNavigate}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -183,11 +183,11 @@ function FenceDropdown({ open, onOpen, onClose, onNavigate }: Omit<DropdownProps
       <div aria-hidden="true" className="absolute left-0 right-0 top-full h-3" />
       <div
         className={[
-          "absolute left-0 top-full mt-3 w-96 overflow-hidden rounded-2xl border border-white/20 bg-[#5c7887]/95 p-3 backdrop-blur-xl transition duration-200",
+          "absolute left-0 top-full mt-3 w-80 max-h-[calc(100vh-6.5rem)] overflow-y-auto overscroll-contain rounded-2xl border border-white/20 bg-[#5c7887]/95 p-2 backdrop-blur-xl transition duration-200",
           open ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0",
         ].join(" ")}
       >
-        <div className="space-y-2">
+        <div className="space-y-0.5">
           {fenceItems.map((item) => (
             <FenceTreeItem key={item.label} item={item} onNavigate={onNavigate} />
           ))}
