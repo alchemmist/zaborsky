@@ -68,6 +68,28 @@ export async function upsertProduct(
   await writeJson(CATALOG_FILE, catalog);
 }
 
+export async function reorderProducts(
+  slug: string,
+  ids: string[]
+): Promise<void> {
+  const catalog = await getCatalog();
+  const section = catalog[slug];
+  if (!section) throw new Error(`Unknown section: ${slug}`);
+  const list = section.products as { id: string }[];
+  const map = new Map(list.map((p) => [p.id, p]));
+  const ordered: { id: string }[] = [];
+  for (const id of ids) {
+    const p = map.get(id);
+    if (p) {
+      ordered.push(p);
+      map.delete(id);
+    }
+  }
+  for (const p of map.values()) ordered.push(p);
+  section.products = ordered as CatalogSection["products"];
+  await writeJson(CATALOG_FILE, catalog);
+}
+
 export async function setProductHidden(
   slug: string,
   id: string,
