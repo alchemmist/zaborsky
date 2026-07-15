@@ -9,6 +9,7 @@ export function CatalogProductCard({
   product: CatalogProduct;
   compact?: boolean;
 }) {
+  const uploaded = product.image.startsWith("/uploads/");
   return (
     <article className="group flex h-full flex-col overflow-hidden bg-white shadow-[0_10px_26px_rgba(22,28,37,0.08)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(22,28,37,0.12)]">
        <div className={compact ? "px-6 pt-6" : "relative aspect-[4/3] overflow-hidden"}>
@@ -19,6 +20,7 @@ export function CatalogProductCard({
           width={compact ? 300 : undefined}
           height={compact ? 300 : undefined}
           sizes={compact ? "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"}
+          unoptimized={uploaded}
           className={compact ? "object-contain transition duration-500 group-hover:scale-110 mx-auto" : "object-cover transition duration-500 group-hover:scale-110"}
         />
       </div>
