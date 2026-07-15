@@ -1,6 +1,9 @@
 import { TelegramLink, MaxLink } from "@/components/social-icons";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
 
-export function AboutSection() {
+export async function AboutSection() {
+  const { phone, email } = await getSettings();
   return (
     <section id="about" className="bg-white px-6 py-6 pb-20 sm:px-16 sm:pb-24 lg:px-28 lg:pb-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
@@ -49,10 +52,10 @@ export function AboutSection() {
                 Телефон
               </p>
               <a
-                href="tel:+79659383373"
+                href={telHref(phone)}
                 className="mt-2 block text-xl font-semibold text-slate-900 transition hover:text-[#5c7887]"
               >
-                8-965-938-33-73
+                {phone}
               </a>
             </div>
             <div>
@@ -60,10 +63,10 @@ export function AboutSection() {
                 Email
               </p>
               <a
-                href="mailto:prometiz@inbox.ru"
+                href={`mailto:${email}`}
                 className="mt-2 block text-lg font-medium text-slate-900 transition hover:text-[#5c7887]"
               >
-                prometiz@inbox.ru
+                {email}
               </a>
             </div>
             <div>

@@ -1,6 +1,11 @@
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
+
 const siteUrl = "https://заборский.рф";
 
-export function OrganizationJsonLd() {
+export async function OrganizationJsonLd() {
+  const { phone, email } = await getSettings();
+  const telephone = telHref(phone).replace("tel:", "");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -15,9 +20,9 @@ export function OrganizationJsonLd() {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+7-965-938-33-73",
+      telephone,
       contactType: "customer service",
-      email: "prometiz@inbox.ru",
+      email,
       availableLanguage: ["Russian"],
     },
     address: {
@@ -34,7 +39,9 @@ export function OrganizationJsonLd() {
   );
 }
 
-export function LocalBusinessJsonLd() {
+export async function LocalBusinessJsonLd() {
+  const { phone, email } = await getSettings();
+  const telephone = telHref(phone).replace("tel:", "");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -44,8 +51,8 @@ export function LocalBusinessJsonLd() {
     image: `${siteUrl}/logo.svg`,
     description:
       "Премиальная установка заборов, благоустройство участка и монтаж решений под ключ.",
-    telephone: "+7-965-938-33-73",
-    email: "prometiz@inbox.ru",
+    telephone,
+    email,
     priceRange: "₽₽",
     sameAs: [
       "https://t.me/alex_zaborsky",
@@ -75,9 +82,9 @@ export function LocalBusinessJsonLd() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+7-965-938-33-73",
+      telephone,
       contactType: "customer service",
-      email: "prometiz@inbox.ru",
+      email,
       availableLanguage: ["Russian"],
     },
   };

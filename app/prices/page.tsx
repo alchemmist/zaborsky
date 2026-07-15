@@ -2,6 +2,8 @@ import { DevelopmentPage } from "@/components/development-page";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getPrices } from "@/lib/catalog";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
 import { isAdmin } from "@/lib/auth-server";
 import { PricesEditor } from "@/components/admin/prices-editor";
 import { AdminBar } from "@/components/admin/admin-bar";
@@ -19,7 +21,11 @@ export const metadata: Metadata = {
 };
 
 export default async function PricesPage() {
-  const [priceItems, editable] = await Promise.all([getPrices(), isAdmin()]);
+  const [priceItems, editable, { phone }] = await Promise.all([
+    getPrices(),
+    isAdmin(),
+    getSettings(),
+  ]);
 
   return (
     <DevelopmentPage
@@ -89,7 +95,7 @@ export default async function PricesPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href="tel:+79659383373"
+                href={telHref(phone)}
                 className="inline-flex items-center rounded-full bg-white px-8 py-4 text-base font-bold uppercase tracking-[0.14em] text-[#5c7887] transition hover:bg-white/90"
               >
                 Позвонить

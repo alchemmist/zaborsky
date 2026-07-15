@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
+import { getSettings } from "@/lib/settings";
+import { HomeTextEditor } from "@/components/admin/home-text-editor";
 
-export function Hero() {
+export async function Hero({ editable }: { editable?: boolean }) {
+  const { heroTitle, heroSubtitle } = await getSettings();
   return (
     <section id="hero" className="relative h-[50svh] min-h-[420px] overflow-hidden bg-[#5c7887]">
       <Image
@@ -15,13 +18,15 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#1d262b]/60" />
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/30 to-transparent" />
 
+      {editable ? <HomeTextEditor heroTitle={heroTitle} heroSubtitle={heroSubtitle} /> : null}
+
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-16 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-center text-white">
           <h1 className="text-3xl uppercase text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-            Заборский — СТИЛЬ СНАРУЖИ И ВНУТРИ
+            {heroTitle}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm uppercase tracking-[0.26em] text-white/80 sm:text-base md:text-lg">
-            ЗАБОРЫ ЖАЛЮЗИ — ЛУЧШИЙ СТИЛЬ ВАШЕГО УЧАСТКА
+            {heroSubtitle}
           </p>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/service-page";
 import Link from "next/link";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Установка заборов под ключ — цена монтажа",
@@ -32,7 +34,8 @@ const steps = [
   { title: "Приёмка", description: "Сдача объекта, проверка качества, подписание акта" },
 ];
 
-export default function InstallationPage() {
+export default async function InstallationPage() {
+  const { phone } = await getSettings();
   return (
     <ServicePage
       title="Установка заборов"
@@ -82,7 +85,7 @@ export default function InstallationPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href="tel:+79659383373"
+                href={telHref(phone)}
                 className="inline-flex items-center rounded-full bg-white px-8 py-4 text-base font-bold uppercase tracking-[0.14em] text-[#5c7887] transition hover:bg-white/90"
               >
                 Позвонить

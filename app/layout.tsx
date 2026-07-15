@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ContactFloat } from "@/components/contact-float";
 import { OrganizationJsonLd, LocalBusinessJsonLd } from "@/components/json-ld";
 import { sitePath } from "@/components/site-path";
+import { getSettings } from "@/lib/settings";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -56,11 +57,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { email } = await getSettings();
   return (
     <html lang="ru" className={`h-full antialiased ${oswald.variable} ${openSans.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col">
@@ -69,7 +71,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <Footer />
-        <ContactFloat />
+        <ContactFloat email={email} />
       </body>
     </html>
   );

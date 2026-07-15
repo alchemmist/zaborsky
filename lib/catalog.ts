@@ -18,14 +18,15 @@ async function readJson<T>(file: string, seed: T): Promise<T> {
     const raw = await fs.readFile(file, "utf8");
     return JSON.parse(raw) as T;
   } catch {
-    await writeJson(file, seed);
-    return seed;
+    return structuredClone(seed);
   }
 }
 
+let writeCounter = 0;
+
 async function writeJson<T>(file: string, data: T): Promise<void> {
   await fs.mkdir(path.dirname(file), { recursive: true });
-  const tmp = `${file}.${process.pid}.tmp`;
+  const tmp = `${file}.${process.pid}.${writeCounter++}.tmp`;
   await fs.writeFile(tmp, JSON.stringify(data, null, 2), "utf8");
   await fs.rename(tmp, file);
 }

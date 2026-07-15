@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export function ContactFloat() {
+export function ContactFloat({ email }: { email: string }) {
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -33,7 +33,7 @@ export function ContactFloat() {
       `Имя: ${name}\nТелефон: ${phone}\n${comment ? `Комментарий: ${comment}` : ""}`
     );
     
-    const mailtoUrl = `mailto:prometiz@inbox.ru?subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
     const link = document.createElement('a');
     link.href = mailtoUrl;
     link.target = '_blank';

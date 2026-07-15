@@ -1,25 +1,26 @@
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 import { TelegramLink, MaxLink } from "@/components/social-icons";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
 
 interface AboutPageSectionProps {
   title: string;
   description: string;
   callToAction: string;
-  phoneHighlight: string;
   images: Array<{
     src: string;
     alt: string;
   }>;
 }
 
-export function AboutPageSection({
+export async function AboutPageSection({
   title,
   description,
   callToAction,
-  phoneHighlight,
   images,
 }: AboutPageSectionProps) {
+  const { phone, email } = await getSettings();
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,19 +45,19 @@ export function AboutPageSection({
               <div>
                 <p className="text-sm uppercase tracking-[0.12em] text-white/70 mb-2">Телефон</p>
                 <a
-                  href="tel:+79659383373"
+                  href={telHref(phone)}
                   className="text-2xl font-bold hover:text-white/80 transition"
                 >
-                  {phoneHighlight}
+                  {phone}
                 </a>
               </div>
               <div>
                 <p className="text-sm uppercase tracking-[0.12em] text-white/70 mb-2">Email</p>
                 <a
-                  href="mailto:prometiz@inbox.ru"
+                  href={`mailto:${email}`}
                   className="text-lg hover:text-white/80 transition break-all"
                 >
-                  prometiz@inbox.ru
+                  {email}
                 </a>
               </div>
               <div>

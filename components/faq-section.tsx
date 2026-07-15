@@ -1,7 +1,5 @@
-export type FaqItem = {
-  question: string;
-  answer: string;
-};
+export type { FaqItem } from "@/lib/types";
+import type { FaqItem } from "@/lib/types";
 
 export function FaqSection({ items, title = "Часто задаваемые вопросы" }: { items: FaqItem[]; title?: string }) {
   const jsonLd = {

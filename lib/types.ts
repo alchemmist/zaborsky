@@ -23,6 +23,19 @@ export type DetailedCatalogProduct = {
   hidden?: boolean;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type SiteSettings = {
+  phone: string;
+  email: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  faq: FaqItem[];
+};
+
 export type PriceRow = {
   name: string;
   price: string;

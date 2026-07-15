@@ -1,6 +1,11 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { AddressSection } from "@/components/address-section";
 import { TelegramIcon, MaxIcon } from "@/components/social-icons";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
+import { isAdmin } from "@/lib/auth-server";
+import { ContactsEditor } from "@/components/admin/contacts-editor";
+import { AdminBar } from "@/components/admin/admin-bar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,7 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactsPage() {
+export default async function ContactsPage() {
+  const [{ phone, email }, editable] = await Promise.all([getSettings(), isAdmin()]);
   return (
     <DevelopmentPage
       title="Контакты"
@@ -28,9 +34,12 @@ export default function ContactsPage() {
     >
       <section className="bg-white pt-16 sm:pt-20 pb-6 sm:pb-8">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
-            Свяжитесь с нами
-          </h2>
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+            <h2 className="text-2xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-3xl">
+              Свяжитесь с нами
+            </h2>
+            {editable ? <ContactsEditor phone={phone} email={email} /> : null}
+          </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col rounded-xl border border-slate-200 bg-slate-50 p-6">
               <div>
@@ -38,10 +47,10 @@ export default function ContactsPage() {
                   Телефон
                 </p>
                 <a
-                  href="tel:+79659383373"
+                  href={telHref(phone)}
                   className="mt-3 block text-xl font-bold text-slate-900 transition hover:text-[#5c7887] sm:text-2xl"
                 >
-                  8-965-938-33-73
+                  {phone}
                 </a>
               </div>
               <p className="mt-auto pt-3 text-base text-slate-500">
@@ -55,10 +64,10 @@ export default function ContactsPage() {
                   Email
                 </p>
                 <a
-                  href="mailto:prometiz@inbox.ru"
+                  href={`mailto:${email}`}
                   className="mt-3 block text-lg font-semibold text-slate-900 transition hover:text-[#5c7887] break-all sm:text-xl"
                 >
-                  prometiz@inbox.ru
+                  {email}
                 </a>
               </div>
               <p className="mt-auto pt-3 text-base text-slate-500">
@@ -105,6 +114,7 @@ export default function ContactsPage() {
         imageSrc="/images/contacts/worker.png"
         imageAlt="Специалист компании ЗАБОРСКИЙ"
       />
+      {editable ? <AdminBar /> : null}
     </DevelopmentPage>
   );
 }

@@ -1,6 +1,9 @@
 import { TelegramIcon, MaxIcon } from "@/components/social-icons";
+import { getSettings } from "@/lib/settings";
+import { telHref } from "@/lib/format";
 
-export function Footer() {
+export async function Footer() {
+  const { phone, email } = await getSettings();
   return (
     <footer className="bg-[#5c7887] px-6 pt-12 pb-24 text-white sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 text-center sm:gap-8">
@@ -9,8 +12,8 @@ export function Footer() {
           напишите нам:
         </p>
         <div className="flex flex-col items-center gap-5 text-base font-semibold uppercase tracking-[0.16em] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-12">
-          <a href="tel:+79659383373" className="rounded-lg px-2 -mx-2 text-white/80 transition-colors duration-200 hover:bg-white/10 hover:text-white">
-            тел 8-965-938-33-73
+          <a href={telHref(phone)} className="rounded-lg px-2 -mx-2 text-white/80 transition-colors duration-200 hover:bg-white/10 hover:text-white">
+            тел {phone}
           </a>
           <div className="flex items-center gap-5 text-white/80 sm:gap-12">
             <a
@@ -33,10 +36,10 @@ export function Footer() {
             </a>
           </div>
           <a
-            href="mailto:prometiz@inbox.ru"
+            href={`mailto:${email}`}
             className="rounded-lg px-2 -mx-2 text-white/80 transition-colors duration-200 hover:bg-white/10 hover:text-white"
           >
-            Email: prometiz@inbox.ru
+            Email: {email}
           </a>
         </div>
       </div>
