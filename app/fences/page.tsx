@@ -1,4 +1,5 @@
 import { DevelopmentPage } from "@/components/development-page";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -44,6 +45,13 @@ export default function FencesPage() {
               Поможем подобрать оптимальный вариант под ваш бюджет и задачи. Выполняем
               профессиональный монтаж с гарантией. Позвоните или напишите — проконсультируем
               по всем вопросам.
+            </p>
+            <p>
+              Работаем в Магнитогорске и области — подробнее на странице{" "}
+              <Link href="/zabor-zhalyuzi-magnitogorsk/" className="font-medium text-[#5c7887] hover:text-[#4a6575]">
+                «Заборы-жалюзи в Магнитогорске»
+              </Link>
+              .
             </p>
           </div>
         </div>

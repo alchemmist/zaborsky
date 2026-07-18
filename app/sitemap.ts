@@ -4,6 +4,7 @@ const siteUrl = "https://заборский.рф";
 
 const routes = [
   { url: siteUrl, priority: 1, changeFrequency: "monthly" as const },
+  { url: `${siteUrl}/zabor-zhalyuzi-magnitogorsk/`, priority: 0.9, changeFrequency: "weekly" as const },
   { url: `${siteUrl}/about/`, priority: 0.6, changeFrequency: "monthly" as const },
   { url: `${siteUrl}/about/reviews/`, priority: 0.5, changeFrequency: "monthly" as const },
   { url: `${siteUrl}/contacts/`, priority: 0.7, changeFrequency: "monthly" as const },
