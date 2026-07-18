@@ -4,7 +4,6 @@ import { CatalogProductCard } from "@/components/catalog-product-card";
 import { SortableProductGrid } from "@/components/admin/sortable-product-grid";
 import { SectionMetaEditor } from "@/components/admin/section-meta-editor";
 import { AdminBar } from "@/components/admin/admin-bar";
-import { KeywordTags } from "@/components/keyword-tags";
 
 export type { CatalogProduct } from "@/lib/types";
 export type CatalogSpec = string;
@@ -84,7 +83,6 @@ export function CatalogPage({ specs, products, compactImages, description, edita
         )}
       </div>
     </section>
-    <KeywordTags slug={slug} />
     {editable ? <AdminBar /> : null}
     </>
   );

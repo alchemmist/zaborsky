@@ -8,7 +8,6 @@ import {
 } from "@/components/admin/detailed-product-editor";
 import { SectionMetaEditor } from "@/components/admin/section-meta-editor";
 import { AdminBar } from "@/components/admin/admin-bar";
-import { KeywordTags } from "@/components/keyword-tags";
 
 export type { DetailedCatalogProduct } from "@/lib/types";
 
@@ -163,7 +162,6 @@ export function DetailedCatalogPage({
         </div>
       </div>
     </section>
-    <KeywordTags slug={slug} />
     {editable ? <AdminBar /> : null}
     </>
   );
