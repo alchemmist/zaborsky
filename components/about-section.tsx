@@ -1,41 +1,35 @@
 import { TelegramLink, MaxLink } from "@/components/social-icons";
 import { getSettings } from "@/lib/settings";
-import { telHref } from "@/lib/format";
+import { telHref, renderParagraphs } from "@/lib/format";
+import { SettingsTextEditor } from "@/components/admin/settings-text-editor";
 
-export async function AboutSection() {
-  const { phone, email } = await getSettings();
+export async function AboutSection({ editable }: { editable?: boolean }) {
+  const { phone, email, aboutCompany } = await getSettings();
   return (
     <section id="about" className="bg-white px-6 py-6 pb-20 sm:px-16 sm:pb-24 lg:px-28 lg:pb-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
-            О компании
-          </p>
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+              О компании
+            </p>
+            {editable ? (
+              <SettingsTextEditor
+                field="aboutCompany"
+                value={aboutCompany}
+                title="О компании"
+                label="Редактировать"
+                hint="Абзацы разделяйте пустой строкой."
+              />
+            ) : null}
+          </div>
           <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
             Заборский
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600 sm:text-xl">
-            <p>
-              Заборский - это успешный бренд и годами накопленный опыт монтажа
-              красивых и стильных заборов по всей России, с инновационными
-              подходами к дизайну заборов, технологии монтажа и выбору
-              материалов.
-            </p>
-            <p>
-              Мы заботимся о том, чтобы каждый объект нашего заказчика был
-              индивидуален, сделан качественно и радовал на протяжении всей
-              жизни.
-            </p>
-            <p>
-              Мы создаем впечатляющие современные заборы для каждого из наших
-              клиентов, внимательно относимся к его мнению и предлагаем
-              наилучшее решение.
-            </p>
-            <p>
-              Если вы хотите, чтобы ваш дом и участок преобразился в короткие
-              сроки, у вас нет забора, или он устарел, обязательно звоните нам.
-              Проконсультируем, ответим на все вопросы.
-            </p>
+            {renderParagraphs(aboutCompany).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
         </div>
 

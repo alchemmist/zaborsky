@@ -14,6 +14,8 @@ export async function POST(req: Request) {
   if (typeof body.email === "string") patch.email = body.email;
   if (typeof body.heroTitle === "string") patch.heroTitle = body.heroTitle;
   if (typeof body.heroSubtitle === "string") patch.heroSubtitle = body.heroSubtitle;
+  if (typeof body.aboutCompany === "string") patch.aboutCompany = body.aboutCompany;
+  if (typeof body.aboutHistory === "string") patch.aboutHistory = body.aboutHistory;
   if (Array.isArray(body.faq)) {
     patch.faq = body.faq.filter(
       (f) => f && typeof f.question === "string" && typeof f.answer === "string"

@@ -2,12 +2,13 @@ import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 import { TelegramLink, MaxLink } from "@/components/social-icons";
 import { getSettings } from "@/lib/settings";
-import { telHref } from "@/lib/format";
+import { telHref, renderParagraphs } from "@/lib/format";
+import { SettingsTextEditor } from "@/components/admin/settings-text-editor";
 
 interface AboutPageSectionProps {
   title: string;
-  description: string;
   callToAction: string;
+  editable?: boolean;
   images: Array<{
     src: string;
     alt: string;
@@ -16,22 +17,35 @@ interface AboutPageSectionProps {
 
 export async function AboutPageSection({
   title,
-  description,
   callToAction,
+  editable,
   images,
 }: AboutPageSectionProps) {
-  const { phone, email } = await getSettings();
+  const { phone, email, aboutHistory } = await getSettings();
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
-              {title}
-            </h2>
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.18em] text-slate-900 sm:text-4xl">
+                {title}
+              </h2>
+              {editable ? (
+                <SettingsTextEditor
+                  field="aboutHistory"
+                  value={aboutHistory}
+                  title="Наша история"
+                  label="Редактировать"
+                  hint="Абзацы разделяйте пустой строкой."
+                />
+              ) : null}
+            </div>
             <div className="space-y-4 text-lg leading-relaxed text-slate-700">
-              <div dangerouslySetInnerHTML={{ __html: description }} />
+              {renderParagraphs(aboutHistory).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
               <p className="font-semibold text-slate-900">{callToAction}</p>
             </div>
           </div>

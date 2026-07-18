@@ -12,7 +12,7 @@ export async function HomePage() {
       <Hero editable={editable} />
       <CtaSection />
       <FencesGrid />
-      <AboutSection />
+      <AboutSection editable={editable} />
       {editable ? <AdminBar /> : null}
     </main>
   );

@@ -19,6 +19,7 @@ const fenceItems: MenuNode[] = [
   { label: "Сайдинг", href: "/fences/siding/" },
   { label: "3D сетка Гиттер", href: "/fences/gitter/" },
   { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence/" },
+  { label: "Откатные ворота", href: "/fences/gates/" },
   {
     label: "Комплектующие для заборов",
     href: "",
@@ -34,7 +35,10 @@ const aboutItems: MenuNode[] = [
   { label: "FAQ", href: "/faq/" },
   { label: "Отзывы", href: "/about/reviews/" },
 ];
-const landscapingItems: MenuNode[] = [{ label: "Шаговые плиты", href: "/landscaping/step-pavers/" }];
+const landscapingItems: MenuNode[] = [
+  { label: "Шаговые плиты", href: "/landscaping/step-pavers/" },
+  { label: "Террасная доска ДПК", href: "/landscaping/terrace-board/" },
+];
 
 type DropdownProps = {
   item: MenuNode;

@@ -33,6 +33,8 @@ export type SiteSettings = {
   email: string;
   heroTitle: string;
   heroSubtitle: string;
+  aboutCompany: string;
+  aboutHistory: string;
   faq: FaqItem[];
 };
 

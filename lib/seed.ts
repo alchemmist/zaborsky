@@ -240,6 +240,20 @@ export const seedCatalog: CatalogData = {
       { id: "step-pavers-graphite-grey", title: "Шаговые плиты", color: "Графитовый Серый", extra: "990×330×55 мм, полимерно-песчаный композит, коллекция STONE", price: "1400 руб", image: "/images/fences/step-pavers/product-3.png", alt: "Шаговые плиты Графитовый Серый" },
     ],
   },
+
+  gates: {
+    kind: "catalog",
+    description:
+      "Откатные ворота под ключ: надёжная автоматика, прочная конструкция и аккуратный внешний вид. Изготовление, доставка и монтаж в Магнитогорске, Челябинской области и Башкирии.",
+    products: [],
+  },
+
+  "terrace-board": {
+    kind: "catalog",
+    description:
+      "Террасная доска ДПК (древесно-полимерный композит) — практичное и долговечное покрытие для террас, дорожек и зон отдыха. Не гниёт, не выцветает и не требует покраски.",
+    products: [],
+  },
 };
 
 export const seedPrices: PriceRow[] = [

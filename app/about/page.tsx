@@ -1,5 +1,7 @@
 import { DevelopmentPage } from "@/components/development-page";
 import { AboutPageSection } from "@/components/about-page-section";
+import { isAdmin } from "@/lib/auth-server";
+import { AdminBar } from "@/components/admin/admin-bar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const editable = await isAdmin();
   return (
     <DevelopmentPage
       title="О нас"
@@ -27,8 +30,8 @@ export default function AboutPage() {
     >
       <AboutPageSection
         title="Наша история"
-        description="Компания &quot;ЗАБОРСКИЙ.РФ&quot; работает с 2017 года. Она основана Алексеем Заборским, который начинал свой путь как обычный строитель заборов в Челябинской области. Развитие компании не останавливалось все годы существования, мы заключили прямые контракты с заводами, которые изготавливают различную продукцию для заборов. Являемся основным дистрибьютором холдинга заводов ТПК &quot;Центр Металлокровли&quot; по Российской Федерации, который выпускает различные заборы жалюзи и многое другое, также имеем дилерские соглашения с другими производителями, которые выпускают материалы для заборов. Кроме качественных услуг мы можем предложить своим клиентам большой спектр различных материалов по доступным ценам."
         callToAction="Позвоните, или напишите нам, чтобы выбрать ваш забор мечты"
+        editable={editable}
         images={[
           {
             src: "/images/about/example-1.png",
@@ -40,6 +43,7 @@ export default function AboutPage() {
           },
         ]}
       />
+      {editable ? <AdminBar /> : null}
     </DevelopmentPage>
   );
 }
