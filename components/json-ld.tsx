@@ -1,7 +1,23 @@
 import { getSettings } from "@/lib/settings";
 import { telHref } from "@/lib/format";
+import { GEO } from "@/lib/geo";
 
 const siteUrl = "https://заборский.рф";
+
+const areaServed = [
+  { "@type": "City", name: GEO.city },
+  ...GEO.nearbyCities.map((name) => ({ "@type": "City", name })),
+  { "@type": "AdministrativeArea", name: GEO.region },
+  { "@type": "AdministrativeArea", name: GEO.region2 },
+  { "@type": "Country", name: "Россия" },
+];
+
+const postalAddress = {
+  "@type": "PostalAddress",
+  addressLocality: GEO.city,
+  addressRegion: GEO.region,
+  addressCountry: "RU",
+};
 
 export async function OrganizationJsonLd() {
   const { phone, email } = await getSettings();
@@ -25,10 +41,8 @@ export async function OrganizationJsonLd() {
       email,
       availableLanguage: ["Russian"],
     },
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "RU",
-    },
+    address: postalAddress,
+    areaServed,
   };
 
   return (
@@ -58,14 +72,13 @@ export async function LocalBusinessJsonLd() {
       "https://t.me/alex_zaborsky",
       "https://max.ru/u/f9LHodD0cOJiBu4STx8Aftcw4KZhEOB63VktzebdOwXrwVfS40jk-2SXHaw",
     ],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "RU",
+    address: postalAddress,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: GEO.latitude,
+      longitude: GEO.longitude,
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Россия",
-    },
+    areaServed,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [

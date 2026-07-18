@@ -1,6 +1,7 @@
 import { TelegramIcon, MaxIcon } from "@/components/social-icons";
 import { getSettings } from "@/lib/settings";
 import { telHref } from "@/lib/format";
+import { GEO } from "@/lib/geo";
 
 export async function Footer() {
   const { phone, email } = await getSettings();
@@ -42,6 +43,9 @@ export async function Footer() {
             Email: {email}
           </a>
         </div>
+        <p className="text-sm uppercase tracking-[0.16em] text-white/60">
+          {GEO.city} · {GEO.region} и {GEO.regionShort} · доставка по России
+        </p>
       </div>
     </footer>
   );
