@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { CatalogProduct } from "@/lib/types";
-import { ImageField } from "@/components/admin/image-field";
+import { MultiImageField } from "@/components/admin/multi-image-field";
 import {
   Modal,
   fieldClass,
@@ -17,16 +17,18 @@ type Draft = {
   color: string;
   extra: string;
   price: string;
-  image: string;
+  images: string[];
 };
 
 function toDraft(p?: CatalogProduct): Draft {
+  const images =
+    p?.images && p.images.length > 0 ? p.images : p?.image ? [p.image] : [];
   return {
     title: p?.title ?? "",
     color: p?.color ?? "",
     extra: p?.extra ?? "",
     price: p?.price ?? "",
-    image: p?.image ?? "",
+    images,
   };
 }
 
@@ -42,7 +44,8 @@ function ProductForm({
   const router = useRouter();
   const [draft, setDraft] = useState<Draft>(toDraft(product));
   const [saving, setSaving] = useState(false);
-  const set = (k: keyof Draft) => (v: string) => setDraft((d) => ({ ...d, [k]: v }));
+  const set = (k: "title" | "color" | "extra" | "price") => (v: string) =>
+    setDraft((d) => ({ ...d, [k]: v }));
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -53,7 +56,8 @@ function ProductForm({
       color: draft.color,
       extra: draft.extra || undefined,
       price: draft.price,
-      image: draft.image,
+      image: draft.images[0] ?? "",
+      images: draft.images,
       alt: `${draft.title} ${draft.color}`.trim() || draft.title,
     };
     const res = await fetch("/api/admin/product", {
@@ -89,7 +93,7 @@ function ProductForm({
           <label className={labelClass}>Цена</label>
           <input className={fieldClass} value={draft.price} onChange={(e) => set("price")(e.target.value)} placeholder="напр. Цена 188 руб п/м" />
         </div>
-        <ImageField value={draft.image} onChange={set("image")} />
+        <MultiImageField value={draft.images} onChange={(images) => setDraft((d) => ({ ...d, images }))} />
         <div className="flex justify-end gap-3 pt-2">
           <button type="button" className={ghostBtn} onClick={onClose}>
             Отмена

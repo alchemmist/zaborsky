@@ -5,6 +5,7 @@ export type CatalogProduct = {
   extra?: string;
   price: string;
   image: string;
+  images?: string[];
   alt: string;
   hidden?: boolean;
 };
