@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Modal,
@@ -82,8 +82,16 @@ export function AdminBar() {
   const router = useRouter();
   const [pwOpen, setPwOpen] = useState(false);
 
+  // Ставим клиентскую метку админа, чтобы кнопки редактирования (в т.ч. замена
+  // фона шапки) появлялись и у сессий, залогиненных до её появления.
+  useEffect(() => {
+    document.cookie = `zbr_admin_ui=1; path=/; max-age=${60 * 60 * 24 * 30}; samesite=lax`;
+    window.dispatchEvent(new Event("zbr-admin"));
+  }, []);
+
   async function logout() {
     await fetch("/api/admin/logout", { method: "POST" });
+    document.cookie = "zbr_admin_ui=; path=/; max-age=0";
     router.refresh();
   }
 

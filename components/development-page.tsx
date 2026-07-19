@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { sitePath } from "@/components/site-path";
-import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
+import { type BreadcrumbItem } from "@/components/breadcrumbs";
 import { BreadcrumbJsonLd } from "@/components/json-ld";
 import { getSettings } from "@/lib/settings";
 import { HeroImageEditor } from "@/components/admin/hero-image-editor";
@@ -30,19 +30,16 @@ export async function DevelopmentPage({
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {breadcrumbs ? (
-        <>
-          <BreadcrumbJsonLd
-            items={[
-              { name: "Главная", url: "/" },
-              ...breadcrumbs.map((b) => {
-                const rawUrl = b.href ?? breadcrumbsPath ?? "/";
-                const url = rawUrl.endsWith("/") ? rawUrl : `${rawUrl}/`;
-                return { name: b.label, url };
-              }),
-            ]}
-          />
-          <Breadcrumbs items={breadcrumbs} />
-        </>
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Главная", url: "/" },
+            ...breadcrumbs.map((b) => {
+              const rawUrl = b.href ?? breadcrumbsPath ?? "/";
+              const url = rawUrl.endsWith("/") ? rawUrl : `${rawUrl}/`;
+              return { name: b.label, url };
+            }),
+          ]}
+        />
       ) : null}
       <section className="relative isolate flex h-[50svh] min-h-[420px] items-center overflow-hidden bg-slate-900">
         <Image

@@ -9,7 +9,12 @@ export function HeroImageEditor({ path }: { path: string }) {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    setIsAdmin(document.cookie.split("; ").some((c) => c.startsWith("zbr_admin_ui=")));
+    const check = () =>
+      setIsAdmin(document.cookie.split("; ").some((c) => c.startsWith("zbr_admin_ui=")));
+    check();
+    const onAdmin = () => setIsAdmin(true);
+    window.addEventListener("zbr-admin", onAdmin);
+    return () => window.removeEventListener("zbr-admin", onAdmin);
   }, []);
 
   if (!isAdmin) return null;
