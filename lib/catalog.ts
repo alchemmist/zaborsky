@@ -32,7 +32,10 @@ async function writeJson<T>(file: string, data: T): Promise<void> {
 }
 
 export async function getCatalog(): Promise<CatalogData> {
-  return readJson<CatalogData>(CATALOG_FILE, seedCatalog);
+  const stored = await readJson<CatalogData>(CATALOG_FILE, seedCatalog);
+  // Сохранённый файл в томе мог быть создан до появления новых разделов в seed —
+  // подмешиваем недостающие разделы из seed, не затирая отредактированные.
+  return { ...structuredClone(seedCatalog), ...stored };
 }
 
 export async function getSection(slug: string): Promise<CatalogSection | null> {
