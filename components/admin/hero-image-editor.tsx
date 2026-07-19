@@ -42,7 +42,7 @@ export function HeroImageEditor({ path }: { path: string }) {
   }
 
   return (
-    <label className="absolute right-4 top-4 z-20 inline-flex cursor-pointer items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-md ring-1 ring-black/10 transition hover:text-[#5c7887]">
+    <label className="absolute right-4 top-24 z-20 inline-flex cursor-pointer items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700 shadow-md ring-1 ring-black/10 transition hover:text-[#5c7887]">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 7h3l2-2h6l2 2h3v12H4z" strokeLinecap="round" strokeLinejoin="round" />
         <circle cx="12" cy="13" r="3.2" />
