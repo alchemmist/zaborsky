@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { ADMIN_COOKIE, makeToken, verifyToken, parseBasicAuth } from "@/lib/auth";
+import { ADMIN_COOKIE, ADMIN_UI_COOKIE, makeToken, verifyToken, parseBasicAuth } from "@/lib/auth";
 import { verifyCredentials } from "@/lib/credentials";
 
 function redirectHome(): NextResponse {
@@ -9,10 +9,22 @@ function redirectHome(): NextResponse {
   });
 }
 
+function setUiCookie(res: NextResponse) {
+  res.cookies.set(ADMIN_UI_COOKIE, "1", {
+    httpOnly: false,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+  });
+}
+
 export async function GET(req: NextRequest) {
   const cookieToken = req.cookies.get(ADMIN_COOKIE)?.value;
   if (await verifyToken(cookieToken)) {
-    return redirectHome();
+    const res = redirectHome();
+    setUiCookie(res);
+    return res;
   }
 
   const creds = parseBasicAuth(req.headers.get("authorization"));
@@ -26,6 +38,7 @@ export async function GET(req: NextRequest) {
       path: "/",
       maxAge: 60 * 60 * 24 * 30,
     });
+    setUiCookie(res);
     return res;
   }
 

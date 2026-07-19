@@ -1,4 +1,5 @@
 export const ADMIN_COOKIE = "zbr_admin";
+export const ADMIN_UI_COOKIE = "zbr_admin_ui";
 
 function bufToHex(buf: ArrayBuffer): string {
   return Array.from(new Uint8Array(buf))
