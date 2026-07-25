@@ -18,7 +18,7 @@ const fenceItems: MenuNode[] = [
   { label: "Евроштакетник", href: "/fences/metal-planken-rancho/euro-shaketnik/" },
   { label: "Сайдинг", href: "/fences/siding/" },
   { label: "3D сетка Гиттер", href: "/fences/gitter/" },
-  { label: "Травяной забор (Grass Fence)", href: "/fences/grass-fence/" },
+  { label: "Травяной забор", href: "/fences/grass-fence/" },
   { label: "Откатные ворота", href: "/fences/gates/" },
   {
     label: "Комплектующие для заборов",

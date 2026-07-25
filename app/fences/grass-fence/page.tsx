@@ -8,14 +8,14 @@ import type { Metadata } from "next";
 const SLUG = "grass-fence";
 
 export const metadata: Metadata = {
-  title: "Травяной забор (Grass Fence)",
-  description: "Травяной забор Grass Fence. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
+  title: "Травяной забор",
+  description: "Травяной забор. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
   alternates: {
     canonical: "https://заборский.рф/fences/grass-fence/",
   },
   openGraph: {
-    title: "Травяной забор (Grass Fence)",
-    description: "Травяной забор Grass Fence. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
+    title: "Травяной забор",
+    description: "Травяной забор. Размеры 2x5м и 2x10м. Цены от 17 000 руб.",
   },
 };
 
@@ -31,12 +31,12 @@ export default async function GrassFencePage() {
 
   return (
     <DevelopmentPage
-      title="Травяной забор (Grass Fence)"
+      title="Травяной забор"
       imageSrc="/images/fences/grass-fence.png"
-      imageAlt="Травяной забор Grass Fence"
+      imageAlt="Травяной забор"
       breadcrumbs={[
         { label: "Заборы", href: "/fences/" },
-        { label: "Травяной забор (Grass Fence)" },
+        { label: "Травяной забор" },
       ]}
       breadcrumbsPath="/fences/grass-fence"
     >
