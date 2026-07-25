@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { sitePath } from "@/components/site-path";
 
@@ -151,7 +152,8 @@ export function ProductGallery({
         ) : null}
       </div>
 
-      {open ? (
+      {open && typeof document !== "undefined"
+        ? createPortal(
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4"
           onClick={() => setOpen(false)}
@@ -219,8 +221,10 @@ export function ProductGallery({
               </div>
             </>
           ) : null}
-        </div>
-      ) : null}
+        </div>,
+          document.body
+        )
+        : null}
     </>
   );
 }
