@@ -36,6 +36,8 @@ export type SiteSettings = {
   heroSubtitle: string;
   aboutCompany: string;
   aboutHistory: string;
+  addressDescription: string;
+  addressImage: string;
   heroImages: Record<string, string>;
   faq: FaqItem[];
 };

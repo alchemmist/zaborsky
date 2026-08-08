@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactsPage() {
-  const [{ phone, email }, editable] = await Promise.all([getSettings(), isAdmin()]);
+  const [{ phone, email, addressDescription, addressImage }, editable] = await Promise.all([getSettings(), isAdmin()]);
   return (
     <DevelopmentPage
       title="Контакты"
@@ -110,9 +110,10 @@ export default async function ContactsPage() {
       </section>
 
       <AddressSection
-        description="Базируемся в Магнитогорске и работаем по Челябинской области и Башкирии — монтаж выполняем на месте, силами наших бригад. Материалы отправляем по всей России. Наши офисы там, где работают наши монтажные бригады: чтобы клиенты не тратили время на поездки в офис, каждая бригада имеет полный комплект образцов и веер цветов, чтобы показать на объекте варианты жалюзи, штакетника и проконсультировать по наилучшему выбору."
-        imageSrc="/images/contacts/worker.png"
+        description={addressDescription}
+        imageSrc={addressImage}
         imageAlt="Специалист компании ЗАБОРСКИЙ"
+        editable={editable}
       />
       {editable ? <AdminBar /> : null}
     </DevelopmentPage>
